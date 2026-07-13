@@ -1,0 +1,13 @@
+.idea/
+.playwright-cli/
+.venv/
+output/
+__pycache__/
+*.py[cod]
+
+# Local captured data and raw traffic exports may contain account data.
+res_json/live_*.json
+res_json/接口.md
+res_json/练习历史.html
+res_json/用户报告.html
+res_json/我的错题.html
