@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cookie 设置</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='3' fill='%232f7cf6'/%3E%3Cpath d='M4 8.4 6.7 11 12 5' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <style>
+    :root {
+      --bg: #f6f7f9;
+      --surface: #ffffff;
+      --text: #22252b;
+      --muted: #707783;
+      --line: #e7eaf0;
+      --accent: #2f7cf6;
+      --accent-soft: #eaf2ff;
+      --danger: #d64545;
+      --ok: #16875f;
+      --shadow: 0 8px 28px rgba(25, 35, 55, .08);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif;
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .shell {
+      max-width: 840px;
+      margin: 0 auto;
+      padding: 24px 20px 48px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0 0 4px;
+      font-size: 24px;
+      font-weight: 600;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      padding: 18px;
+      margin-bottom: 16px;
+    }
+
+    .status-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .status-item {
+      padding: 12px;
+      background: #f9fafb;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    .label {
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 4px;
+    }
+
+    .value {
+      font-weight: 650;
+      overflow-wrap: anywhere;
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 150px;
+      resize: vertical;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      color: var(--text);
+      font: inherit;
+    }
+
+    button {
+      border: 0;
+      border-radius: 6px;
+      background: var(--accent);
+      color: #fff;
+      cursor: pointer;
+      font: inherit;
+      font-weight: 600;
+      padding: 10px 14px;
+    }
+
+    button:disabled {
+      cursor: wait;
+      opacity: .65;
+    }
+
+    .actions {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      margin-top: 12px;
+    }
+
+    .message {
+      margin-top: 12px;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background: #f9fafb;
+      overflow-wrap: anywhere;
+    }
+
+    .message.ok {
+      color: var(--ok);
+      border-color: #bde8d5;
+      background: #f1fbf7;
+    }
+
+    .message.error {
+      color: var(--danger);
+      border-color: #ffd2d2;
+      background: #fff4f4;
+    }
+
+    @media (max-width: 640px) {
+      .shell { padding: 16px 12px 32px; }
+      .topbar { align-items: flex-start; flex-direction: column; }
+      .status-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <div>
+        <h1>Cookie 设置</h1>
+        <div class="muted">更新粉笔接口请求使用的登录 Cookie</div>
+      </div>
+      <a href="/report.html">返回报告</a>
+    </header>
+
+    <section class="card">
+      <div class="status-grid" id="statusGrid">
+        <div class="status-item">
+          <div class="label">Cookie</div>
+          <div class="value">读取中</div>
+        </div>
+        <div class="status-item">
+          <div class="label">来源</div>
+          <div class="value">读取中</div>
+        </div>
+        <div class="status-item">
+          <div class="label">最近状态</div>
+          <div class="value">读取中</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="label">新 Cookie</div>
+      <textarea id="cookieInput" placeholder="粘贴完整 Cookie，例如 userid=...; sess=...; persistent=..."></textarea>
+      <div class="actions">
+        <button type="button" id="saveButton">验证并更新</button>
+        <span class="muted">运行时写入是临时存储；生产环境建议同步更新 Vercel 的 FENBI_COOKIE 环境变量。</span>
+      </div>
+      <div id="message" class="message" hidden></div>
+    </section>
+  </main>
+
+  <script>
+    const statusGrid = document.getElementById('statusGrid');
+    const cookieInput = document.getElementById('cookieInput');
+    const saveButton = document.getElementById('saveButton');
+    const message = document.getElementById('message');
+
+    function setMessage(text, type = '') {
+      message.hidden = false;
+      message.className = `message ${type}`;
+      message.textContent = text;
+    }
+
+    async function loadStatus() {
+      try {
+        const res = await fetch('/api/health', { cache: 'no-store' });
+        const payload = await res.json();
+        const status = payload.status || {};
+        statusGrid.innerHTML = `
+          <div class="status-item">
+            <div class="label">Cookie</div>
+            <div class="value">${payload.cookie?.configured ? '已配置' : '未配置'}</div>
+          </div>
+          <div class="status-item">
+            <div class="label">来源</div>
+            <div class="value">${payload.cookie?.source || '--'}</div>
+          </div>
+          <div class="status-item">
+            <div class="label">最近状态</div>
+            <div class="value">${status.ok ? '成功' : (status.last_error?.message || '暂无成功记录')}</div>
+          </div>
+        `;
+      } catch (error) {
+        setMessage(`健康检查失败：${error.message}`, 'error');
+      }
+    }
+
+    saveButton.addEventListener('click', async () => {
+      const cookie = cookieInput.value.trim();
+      if (!cookie) {
+        setMessage('Cookie 不能为空', 'error');
+        return;
+      }
+
+      saveButton.disabled = true;
+      setMessage('正在验证 Cookie，请稍候');
+      try {
+        const res = await fetch('/api/admin/cookie', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ cookie })
+        });
+        const payload = await res.json();
+        if (!res.ok || !payload.ok) {
+          throw new Error(payload.error?.message || `HTTP ${res.status}`);
+        }
+        cookieInput.value = '';
+        setMessage(`${payload.message}。${payload.warning}`, 'ok');
+        await loadStatus();
+      } catch (error) {
+        setMessage(`更新失败：${error.message}`, 'error');
+      } finally {
+        saveButton.disabled = false;
+      }
+    });
+
+    loadStatus();
+  </script>
+</body>
+</html>
