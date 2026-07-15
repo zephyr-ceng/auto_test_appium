@@ -1,0 +1,3473 @@
+{
+  "code": 1,
+  "msg": "",
+  "data": {
+    "tikuReport": {
+      "userId": 88996385,
+      "answerCount": 989,
+      "exerciseCount": 66,
+      "correctCount": 557,
+      "forecastScore": 50.92735181952075,
+      "avgForecastScore": 48.18688754912945,
+      "maxForecastScore": 98.0,
+      "exerciseDay": 36,
+      "userQuiz": {
+        "id": 53,
+        "name": "四川省考",
+        "quizFullMark": 100,
+        "quizDesc": null
+      },
+      "totalUserCount": 975752,
+      "scoreRankIndex": 390708,
+      "fullMark": 100,
+      "maxAnswerCount": 171257,
+      "answerCountRankIndex": 274641,
+      "trends": [
+        {
+          "time": 1774252712091,
+          "score": 48.65407236522212,
+          "type": 3
+        },
+        {
+          "time": 1774407371537,
+          "score": 48.79781847535508,
+          "type": 3
+        },
+        {
+          "time": 1774409249768,
+          "score": 48.98121820720833,
+          "type": 3
+        },
+        {
+          "time": 1774417740536,
+          "score": 48.98135027500134,
+          "type": 3
+        },
+        {
+          "time": 1774422869855,
+          "score": 48.90859375415569,
+          "type": 3
+        },
+        {
+          "time": 1774493231020,
+          "score": 49.107736371280325,
+          "type": 3
+        },
+        {
+          "time": 1774608206378,
+          "score": 49.10674431475467,
+          "type": 3
+        },
+        {
+          "time": 1774609311820,
+          "score": 49.0984882613097,
+          "type": 3
+        },
+        {
+          "time": 1774856847140,
+          "score": 49.36638055282004,
+          "type": 3
+        },
+        {
+          "time": 1774861513162,
+          "score": 49.358918673674765,
+          "type": 3
+        },
+        {
+          "time": 1775029911462,
+          "score": 50.07952243186436,
+          "type": 3
+        },
+        {
+          "time": 1775287410427,
+          "score": 50.09484527152699,
+          "type": 3
+        },
+        {
+          "time": 1775875722204,
+          "score": 50.307669286763236,
+          "type": 3
+        },
+        {
+          "time": 1775876820850,
+          "score": 50.30848131920841,
+          "type": 3
+        },
+        {
+          "time": 1775877549664,
+          "score": 50.30973775770072,
+          "type": 3
+        },
+        {
+          "time": 1775878739932,
+          "score": 50.781738067620985,
+          "type": 3
+        },
+        {
+          "time": 1778125622163,
+          "score": 50.78187607202083,
+          "type": 3
+        },
+        {
+          "time": 1779092063971,
+          "score": 50.83666486305104,
+          "type": 3
+        },
+        {
+          "time": 1779677979670,
+          "score": 51.028155293080445,
+          "type": 3
+        },
+        {
+          "time": 1779679958305,
+          "score": 51.02869737737821,
+          "type": 3
+        },
+        {
+          "time": 1779681598553,
+          "score": 51.02892304717546,
+          "type": 3
+        },
+        {
+          "time": 1779688686502,
+          "score": 51.03663374772094,
+          "type": 3
+        },
+        {
+          "time": 1779697460492,
+          "score": 50.90869460436597,
+          "type": 3
+        },
+        {
+          "time": 1779764120924,
+          "score": 50.99168329254047,
+          "type": 3
+        },
+        {
+          "time": 1780730483212,
+          "score": 50.85047147137093,
+          "type": 3
+        },
+        {
+          "time": 1780932627319,
+          "score": 50.86763757569872,
+          "type": 3
+        },
+        {
+          "time": 1780934550358,
+          "score": 50.97007580352185,
+          "type": 3
+        },
+        {
+          "time": 1783955724082,
+          "score": 51.0473680127946,
+          "type": 3
+        },
+        {
+          "time": 1783957417089,
+          "score": 51.044603119074985,
+          "type": 3
+        },
+        {
+          "time": 1783958606652,
+          "score": 50.92735181952075,
+          "type": 3
+        }
+      ],
+      "keypoints": [
+        {
+          "id": 832962,
+          "name": "政治理论",
+          "answerCount": 7,
+          "questionCount": 1540,
+          "correctRatio": 42.857142857142854,
+          "score": 0.0,
+          "targetCorrectRatio": 65.0,
+          "keypoints": [
+            {
+              "id": 833721,
+              "name": "马克思主义",
+              "answerCount": 0,
+              "questionCount": 280,
+              "correctRatio": 0.0,
+              "score": 0.0,
+              "targetCorrectRatio": 65.0,
+              "keypoints": [
+                {
+                  "id": 842144,
+                  "name": "马克思主义哲学",
+                  "answerCount": 0,
+                  "questionCount": 267,
+                  "correctRatio": 0.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 65.0,
+                  "keypoints": [
+                    {
+                      "id": 940815,
+                      "name": "总论",
+                      "answerCount": 0,
+                      "questionCount": 4,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 65.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 842145,
+                      "name": "唯物辩证法",
+                      "answerCount": 0,
+                      "questionCount": 130,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 65.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 940816,
+                      "name": "唯物论",
+                      "answerCount": 0,
+                      "questionCount": 36,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 65.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 940817,
+                      "name": "认识论",
+                      "answerCount": 0,
+                      "questionCount": 59,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 65.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 940818,
+                      "name": "唯物史观",
+                      "answerCount": 0,
+                      "questionCount": 33,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 65.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 940819,
+                      "name": "哲学-其他",
+                      "answerCount": 0,
+                      "questionCount": 5,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 65.0,
+                      "keypoints": null
+                    }
+                  ]
+                },
+                {
+                  "id": 940820,
+                  "name": "马克思主义政治经济学",
+                  "answerCount": 0,
+                  "questionCount": 10,
+                  "correctRatio": 0.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 65.0,
+                  "keypoints": [
+                    {
+                      "id": 940822,
+                      "name": "商品经济",
+                      "answerCount": 0,
+                      "questionCount": 3,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 65.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 940823,
+                      "name": "资本主义制度",
+                      "answerCount": 0,
+                      "questionCount": 4,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 65.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 940824,
+                      "name": "政治经济学-其他",
+                      "answerCount": 0,
+                      "questionCount": 3,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 65.0,
+                      "keypoints": null
+                    }
+                  ]
+                },
+                {
+                  "id": 940821,
+                  "name": "科学社会主义",
+                  "answerCount": 0,
+                  "questionCount": 3,
+                  "correctRatio": 0.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 65.0,
+                  "keypoints": null
+                }
+              ]
+            },
+            {
+              "id": 724204,
+              "name": "新思想",
+              "answerCount": 7,
+              "questionCount": 1176,
+              "correctRatio": 42.857142857142854,
+              "score": 0.3545744552566226,
+              "targetCorrectRatio": 65.0,
+              "keypoints": [
+                {
+                  "id": 842146,
+                  "name": "新思想总论",
+                  "answerCount": 0,
+                  "questionCount": 37,
+                  "correctRatio": 0.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 65.0,
+                  "keypoints": null
+                },
+                {
+                  "id": 941914,
+                  "name": "五位一体建设",
+                  "answerCount": 4,
+                  "questionCount": 803,
+                  "correctRatio": 50.0,
+                  "score": 0.34960325382526575,
+                  "targetCorrectRatio": 0.0,
+                  "keypoints": [
+                    {
+                      "id": 842147,
+                      "name": "经济建设",
+                      "answerCount": 1,
+                      "questionCount": 404,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 65.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 842148,
+                      "name": "政治建设",
+                      "answerCount": 1,
+                      "questionCount": 91,
+                      "correctRatio": 100.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 65.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 842149,
+                      "name": "文化建设",
+                      "answerCount": 0,
+                      "questionCount": 69,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 65.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 842150,
+                      "name": "社会建设",
+                      "answerCount": 2,
+                      "questionCount": 169,
+                      "correctRatio": 50.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 65.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 842151,
+                      "name": "生态文明建设",
+                      "answerCount": 0,
+                      "questionCount": 70,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 65.0,
+                      "keypoints": null
+                    }
+                  ]
+                },
+                {
+                  "id": 941915,
+                  "name": "其他建设",
+                  "answerCount": 3,
+                  "questionCount": 336,
+                  "correctRatio": 33.333333333333336,
+                  "score": 0.3617998680571077,
+                  "targetCorrectRatio": 0.0,
+                  "keypoints": null
+                }
+              ]
+            },
+            {
+              "id": 27333,
+              "name": "时事政治",
+              "answerCount": 7,
+              "questionCount": 873,
+              "correctRatio": 42.857142857142854,
+              "score": 0.3545744552566226,
+              "targetCorrectRatio": 65.0,
+              "keypoints": [
+                {
+                  "id": 842157,
+                  "name": "重要文件",
+                  "answerCount": 1,
+                  "questionCount": 327,
+                  "correctRatio": 0.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 65.0,
+                  "keypoints": null
+                },
+                {
+                  "id": 842158,
+                  "name": "重要会议讲话",
+                  "answerCount": 6,
+                  "questionCount": 477,
+                  "correctRatio": 50.0,
+                  "score": 0.39920183197618414,
+                  "targetCorrectRatio": 65.0,
+                  "keypoints": null
+                },
+                {
+                  "id": 842159,
+                  "name": "重要事件",
+                  "answerCount": 0,
+                  "questionCount": 62,
+                  "correctRatio": 0.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 65.0,
+                  "keypoints": null
+                },
+                {
+                  "id": 842160,
+                  "name": "时事政治-其他",
+                  "answerCount": 0,
+                  "questionCount": 7,
+                  "correctRatio": 0.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 65.0,
+                  "keypoints": null
+                }
+              ]
+            },
+            {
+              "id": 942824,
+              "name": "毛中特",
+              "answerCount": 0,
+              "questionCount": 82,
+              "correctRatio": 0.0,
+              "score": 0.0,
+              "targetCorrectRatio": 65.0,
+              "keypoints": [
+                {
+                  "id": 942825,
+                  "name": "党的基本知识",
+                  "answerCount": 0,
+                  "questionCount": 82,
+                  "correctRatio": 0.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 65.0,
+                  "keypoints": [
+                    {
+                      "id": 942826,
+                      "name": "党的历史",
+                      "answerCount": 0,
+                      "questionCount": 68,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 0.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 942827,
+                      "name": "党章党纪",
+                      "answerCount": 0,
+                      "questionCount": 14,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 0.0,
+                      "keypoints": null
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 27141,
+          "name": "常识判断",
+          "answerCount": 53,
+          "questionCount": 3596,
+          "correctRatio": 43.39622641509434,
+          "score": 0.4388313368206947,
+          "targetCorrectRatio": 65.0,
+          "keypoints": [
+            {
+              "id": 27167,
+              "name": "经济常识",
+              "answerCount": 0,
+              "questionCount": 239,
+              "correctRatio": 0.0,
+              "score": 0.0,
+              "targetCorrectRatio": 60.0,
+              "keypoints": [
+                {
+                  "id": 27335,
+                  "name": "宏观经济与调控政策",
+                  "answerCount": 0,
+                  "questionCount": 123,
+                  "correctRatio": 0.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 60.0,
+                  "keypoints": null
+                },
+                {
+                  "id": 941070,
+                  "name": "市场经济",
+                  "answerCount": 0,
+                  "questionCount": 46,
+                  "correctRatio": 0.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 60.0,
+                  "keypoints": null
+                },
+                {
+                  "id": 942588,
+                  "name": "国际经济及组织",
+                  "answerCount": 0,
+                  "questionCount": 28,
+                  "correctRatio": 0.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 60.0,
+                  "keypoints": null
+                },
+                {
+                  "id": 942589,
+                  "name": "微观经济",
+                  "answerCount": 0,
+                  "questionCount": 42,
+                  "correctRatio": 0.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 0.0,
+                  "keypoints": null
+                }
+              ]
+            },
+            {
+              "id": 27168,
+              "name": "法律常识",
+              "answerCount": 45,
+              "questionCount": 986,
+              "correctRatio": 46.666666666666664,
+              "score": 0.47173048972676185,
+              "targetCorrectRatio": 70.0,
+              "keypoints": [
+                {
+                  "id": 942454,
+                  "name": "法理学",
+                  "answerCount": 45,
+                  "questionCount": 50,
+                  "correctRatio": 46.666666666666664,
+                  "score": 0.47173048972676185,
+                  "targetCorrectRatio": 90.0,
+                  "keypoints": null
+                },
+                {
+                  "id": 942455,
+                  "name": "宪法",
+                  "answerCount": 0,
+                  "questionCount": 101,
+                  "correctRatio": 0.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 60.0,
+                  "keypoints": null
+                },
+                {
+                  "id": 27345,
+                  "name": "行政法",
+                  "answerCount": 0,
+                  "questionCount": 238,
+                  "correctRatio": 0.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 53.0,
+                  "keypoints": null
+                },
+                {
+                  "id": 27347,
+                  "name": "民法典",
+                  "answerCount": 0,
+                  "questionCount": 202,
+                  "correctRatio": 0.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 60.0,
+                  "keypoints": null
+                },
+                {
+                  "id": 942456,
+                  "name": "刑法",
+                  "answerCount": 1,
+                  "questionCount": 118,
+                  "correctRatio": 100.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 55.00000000000001,
+                  "keypoints": null
+                },
+                {
+                  "id": 27357,
+                  "name": "劳动法和经济法",
+                  "answerCount": 0,
+                  "questionCount": 66,
+                  "correctRatio": 0.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 70.0,
+                  "keypoints": null
+                },
+                {
+                  "id": 942457,
+                  "name": "诉讼法",
+                  "answerCount": 0,
+                  "questionCount": 33,
+                  "correctRatio": 0.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 70.0,
+                  "keypoints": null
+                },
+                {
+                  "id": 27361,
+                  "name": "其他法律法规",
+                  "answerCount": 0,
+                  "questionCount": 180,
+                  "correctRatio": 0.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 55.00000000000001,
+                  "keypoints": null
+                }
+              ]
+            },
+            {
+              "id": 27169,
+              "name": "科技常识",
+              "answerCount": 4,
+              "questionCount": 979,
+              "correctRatio": 25.0,
+              "score": 0.0,
+              "targetCorrectRatio": 65.0,
+              "keypoints": [
+                {
+                  "id": 27363,
+                  "name": "物理常识",
+                  "answerCount": 0,
+                  "questionCount": 226,
+                  "correctRatio": 0.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 60.0,
+                  "keypoints": null
+                },
+                {
+                  "id": 27365,
+                  "name": "化学常识",
+                  "answerCount": 0,
+                  "questionCount": 110,
+                  "correctRatio": 0.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 55.00000000000001,
+                  "keypoints": null
+                },
+                {
+                  "id": 27367,
+                  "name": "生物常识",
+                  "answerCount": 3,
+                  "questionCount": 231,
+                  "correctRatio": 33.333333333333336,
+                  "score": 0.3617998680571077,
+                  "targetCorrectRatio": 75.0,
+                  "keypoints": null
+                },
+                {
+                  "id": 27369,
+                  "name": "科技理论与成就",
+                  "answerCount": 0,
+                  "questionCount": 153,
+                  "correctRatio": 0.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 60.0,
+                  "keypoints": null
+                },
+                {
+                  "id": 27371,
+                  "name": "生活常识",
+                  "answerCount": 1,
+                  "questionCount": 262,
+                  "correctRatio": 0.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 70.0,
+                  "keypoints": null
+                }
+              ]
+            },
+            {
+              "id": 27170,
+              "name": "人文常识",
+              "answerCount": 2,
+              "questionCount": 1019,
+              "correctRatio": 0.0,
+              "score": 0.0,
+              "targetCorrectRatio": 65.0,
+              "keypoints": [
+                {
+                  "id": 27373,
+                  "name": "中国历史",
+                  "answerCount": 1,
+                  "questionCount": 232,
+                  "correctRatio": 0.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 60.0,
+                  "keypoints": null
+                },
+                {
+                  "id": 27377,
+                  "name": "文学常识",
+                  "answerCount": 0,
+                  "questionCount": 309,
+                  "correctRatio": 0.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 65.0,
+                  "keypoints": null
+                },
+                {
+                  "id": 27379,
+                  "name": "文化常识",
+                  "answerCount": 1,
+                  "questionCount": 478,
+                  "correctRatio": 0.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 60.0,
+                  "keypoints": null
+                }
+              ]
+            },
+            {
+              "id": 27171,
+              "name": "地理国情",
+              "answerCount": 2,
+              "questionCount": 373,
+              "correctRatio": 50.0,
+              "score": 0.0,
+              "targetCorrectRatio": 65.0,
+              "keypoints": [
+                {
+                  "id": 27381,
+                  "name": "自然地理",
+                  "answerCount": 1,
+                  "questionCount": 192,
+                  "correctRatio": 0.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 60.0,
+                  "keypoints": null
+                },
+                {
+                  "id": 27397,
+                  "name": "中国地理",
+                  "answerCount": 1,
+                  "questionCount": 108,
+                  "correctRatio": 100.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 60.0,
+                  "keypoints": null
+                },
+                {
+                  "id": 943262,
+                  "name": "世界地理",
+                  "answerCount": 0,
+                  "questionCount": 42,
+                  "correctRatio": 0.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 0.0,
+                  "keypoints": null
+                },
+                {
+                  "id": 943263,
+                  "name": "其他",
+                  "answerCount": 0,
+                  "questionCount": 31,
+                  "correctRatio": 0.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 0.0,
+                  "keypoints": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 27137,
+          "name": "言语理解与表达",
+          "answerCount": 703,
+          "questionCount": 6949,
+          "correctRatio": 56.6145092460882,
+          "score": 0.48066879282144664,
+          "targetCorrectRatio": 82.0,
+          "keypoints": [
+            {
+              "id": 27154,
+              "name": "逻辑填空",
+              "answerCount": 212,
+              "questionCount": 3023,
+              "correctRatio": 53.301886792452834,
+              "score": 0.46223935538544886,
+              "targetCorrectRatio": 95.0,
+              "keypoints": [
+                {
+                  "id": 27477,
+                  "name": "实词填空",
+                  "answerCount": 58,
+                  "questionCount": 1131,
+                  "correctRatio": 53.44827586206897,
+                  "score": 0.4649569377609161,
+                  "targetCorrectRatio": 80.0,
+                  "keypoints": null
+                },
+                {
+                  "id": 27481,
+                  "name": "成语填空",
+                  "answerCount": 60,
+                  "questionCount": 841,
+                  "correctRatio": 55.0,
+                  "score": 0.46242103454123046,
+                  "targetCorrectRatio": 80.0,
+                  "keypoints": null
+                },
+                {
+                  "id": 27483,
+                  "name": "混搭填空",
+                  "answerCount": 92,
+                  "questionCount": 998,
+                  "correctRatio": 52.17391304347826,
+                  "score": 0.46268798438593967,
+                  "targetCorrectRatio": 80.0,
+                  "keypoints": null
+                },
+                {
+                  "id": 764021,
+                  "name": "词的辨析",
+                  "answerCount": 122,
+                  "questionCount": 1872,
+                  "correctRatio": 51.63934426229508,
+                  "score": 0.4515857871529362,
+                  "targetCorrectRatio": 80.0,
+                  "keypoints": [
+                    {
+                      "id": 775852,
+                      "name": "词的辨析-词义侧重",
+                      "answerCount": 14,
+                      "questionCount": 351,
+                      "correctRatio": 50.0,
+                      "score": 0.4493440762094995,
+                      "targetCorrectRatio": 80.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 775853,
+                      "name": "词的辨析-搭配对象",
+                      "answerCount": 100,
+                      "questionCount": 1449,
+                      "correctRatio": 53.0,
+                      "score": 0.4634643138498103,
+                      "targetCorrectRatio": 80.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 775854,
+                      "name": "词的辨析-感情色彩",
+                      "answerCount": 14,
+                      "questionCount": 209,
+                      "correctRatio": 50.0,
+                      "score": 0.4493440762094995,
+                      "targetCorrectRatio": 80.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 775855,
+                      "name": "词的辨析-程度轻重",
+                      "answerCount": 24,
+                      "questionCount": 316,
+                      "correctRatio": 37.5,
+                      "score": 0.3419026631466601,
+                      "targetCorrectRatio": 80.0,
+                      "keypoints": null
+                    }
+                  ]
+                },
+                {
+                  "id": 764022,
+                  "name": "语境分析",
+                  "answerCount": 195,
+                  "questionCount": 2582,
+                  "correctRatio": 54.35897435897436,
+                  "score": 0.4726392341287184,
+                  "targetCorrectRatio": 80.0,
+                  "keypoints": [
+                    {
+                      "id": 775856,
+                      "name": "关联关系-转折关系",
+                      "answerCount": 18,
+                      "questionCount": 209,
+                      "correctRatio": 55.55555555555556,
+                      "score": 0.5160299799389604,
+                      "targetCorrectRatio": 80.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 775857,
+                      "name": "关联关系-并列关系",
+                      "answerCount": 47,
+                      "questionCount": 488,
+                      "correctRatio": 38.297872340425535,
+                      "score": 0.35859134132817455,
+                      "targetCorrectRatio": 80.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 775858,
+                      "name": "关联关系-因果关系",
+                      "answerCount": 12,
+                      "questionCount": 157,
+                      "correctRatio": 33.333333333333336,
+                      "score": 0.2921707818221865,
+                      "targetCorrectRatio": 80.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 775859,
+                      "name": "对应关系-解释说明",
+                      "answerCount": 13,
+                      "questionCount": 114,
+                      "correctRatio": 69.23076923076923,
+                      "score": 0.6283366341981688,
+                      "targetCorrectRatio": 80.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 775860,
+                      "name": "对应关系-形象表达",
+                      "answerCount": 14,
+                      "questionCount": 107,
+                      "correctRatio": 50.0,
+                      "score": 0.45286882017283325,
+                      "targetCorrectRatio": 80.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 827877,
+                      "name": "对应关系-主题词",
+                      "answerCount": 5,
+                      "questionCount": 55,
+                      "correctRatio": 20.0,
+                      "score": 0.166430639780277,
+                      "targetCorrectRatio": 80.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 827878,
+                      "name": "对应关系-前后呼应",
+                      "answerCount": 147,
+                      "questionCount": 2112,
+                      "correctRatio": 59.183673469387756,
+                      "score": 0.5156428008355406,
+                      "targetCorrectRatio": 80.0,
+                      "keypoints": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": 27153,
+              "name": "片段阅读",
+              "answerCount": 407,
+              "questionCount": 2923,
+              "correctRatio": 56.51105651105651,
+              "score": 0.4706773242928371,
+              "targetCorrectRatio": 82.0,
+              "keypoints": [
+                {
+                  "id": 27459,
+                  "name": "中心理解题",
+                  "answerCount": 283,
+                  "questionCount": 1844,
+                  "correctRatio": 57.24381625441696,
+                  "score": 0.49732163635721277,
+                  "targetCorrectRatio": 80.0,
+                  "keypoints": [
+                    {
+                      "id": 775833,
+                      "name": "关联词-转折",
+                      "answerCount": 91,
+                      "questionCount": 397,
+                      "correctRatio": 56.043956043956044,
+                      "score": 0.48396089290614985,
+                      "targetCorrectRatio": 80.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 775834,
+                      "name": "关联词-因果",
+                      "answerCount": 37,
+                      "questionCount": 275,
+                      "correctRatio": 51.351351351351354,
+                      "score": 0.44084118799019,
+                      "targetCorrectRatio": 0.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 775835,
+                      "name": "关联词-对策",
+                      "answerCount": 72,
+                      "questionCount": 502,
+                      "correctRatio": 68.05555555555556,
+                      "score": 0.57441230176985,
+                      "targetCorrectRatio": 80.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 775836,
+                      "name": "关联词-并列",
+                      "answerCount": 32,
+                      "questionCount": 245,
+                      "correctRatio": 59.375,
+                      "score": 0.5360826877730726,
+                      "targetCorrectRatio": 80.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 775837,
+                      "name": "主题词",
+                      "answerCount": 87,
+                      "questionCount": 434,
+                      "correctRatio": 47.12643678160919,
+                      "score": 0.40037425875632365,
+                      "targetCorrectRatio": 80.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 775839,
+                      "name": "分述句特征-举例子",
+                      "answerCount": 14,
+                      "questionCount": 104,
+                      "correctRatio": 50.0,
+                      "score": 0.416699019440827,
+                      "targetCorrectRatio": 0.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 775840,
+                      "name": "分述句特征-数据资料",
+                      "answerCount": 2,
+                      "questionCount": 15,
+                      "correctRatio": 50.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 0.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 775841,
+                      "name": "分述句特征-多角度论述",
+                      "answerCount": 11,
+                      "questionCount": 99,
+                      "correctRatio": 63.63636363636363,
+                      "score": 0.49152466192054944,
+                      "targetCorrectRatio": 0.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 840685,
+                      "name": "分述句特征-引入铺垫",
+                      "answerCount": 30,
+                      "questionCount": 165,
+                      "correctRatio": 46.666666666666664,
+                      "score": 0.36821418473193224,
+                      "targetCorrectRatio": 0.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 840686,
+                      "name": "分述句特征-其他",
+                      "answerCount": 17,
+                      "questionCount": 125,
+                      "correctRatio": 47.05882352941177,
+                      "score": 0.39883203930587946,
+                      "targetCorrectRatio": 0.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 775842,
+                      "name": "特殊问法",
+                      "answerCount": 9,
+                      "questionCount": 72,
+                      "correctRatio": 33.333333333333336,
+                      "score": 0.2921707818221864,
+                      "targetCorrectRatio": 80.0,
+                      "keypoints": null
+                    }
+                  ]
+                },
+                {
+                  "id": 27463,
+                  "name": "细节判断题",
+                  "answerCount": 91,
+                  "questionCount": 754,
+                  "correctRatio": 56.043956043956044,
+                  "score": 0.41641549099352193,
+                  "targetCorrectRatio": 85.0,
+                  "keypoints": null
+                },
+                {
+                  "id": 27469,
+                  "name": "词句理解题",
+                  "answerCount": 3,
+                  "questionCount": 136,
+                  "correctRatio": 100.0,
+                  "score": 0.9757986071868184,
+                  "targetCorrectRatio": 70.0,
+                  "keypoints": [
+                    {
+                      "id": 775843,
+                      "name": "代词",
+                      "answerCount": 3,
+                      "questionCount": 37,
+                      "correctRatio": 100.0,
+                      "score": 0.9757986071868184,
+                      "targetCorrectRatio": 70.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 811346,
+                      "name": "句子",
+                      "answerCount": 0,
+                      "questionCount": 37,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 70.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 843114,
+                      "name": "实词",
+                      "answerCount": 0,
+                      "questionCount": 62,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 70.0,
+                      "keypoints": null
+                    }
+                  ]
+                },
+                {
+                  "id": 764011,
+                  "name": "标题填入题",
+                  "answerCount": 30,
+                  "questionCount": 189,
+                  "correctRatio": 46.666666666666664,
+                  "score": 0.3576602921850022,
+                  "targetCorrectRatio": 85.0,
+                  "keypoints": null
+                }
+              ]
+            },
+            {
+              "id": 67539,
+              "name": "语句表达",
+              "answerCount": 84,
+              "questionCount": 1005,
+              "correctRatio": 65.47619047619048,
+              "score": 0.5767448269582048,
+              "targetCorrectRatio": 75.0,
+              "keypoints": [
+                {
+                  "id": 67541,
+                  "name": "语句排序题",
+                  "answerCount": 37,
+                  "questionCount": 418,
+                  "correctRatio": 59.45945945945946,
+                  "score": 0.5113278573268969,
+                  "targetCorrectRatio": 80.0,
+                  "keypoints": [
+                    {
+                      "id": 775844,
+                      "name": "确定首句-首句特征",
+                      "answerCount": 8,
+                      "questionCount": 76,
+                      "correctRatio": 37.5,
+                      "score": 0.3119510679500748,
+                      "targetCorrectRatio": 80.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 775845,
+                      "name": "确定首句-非首句特征",
+                      "answerCount": 3,
+                      "questionCount": 85,
+                      "correctRatio": 100.0,
+                      "score": 0.9757986071868184,
+                      "targetCorrectRatio": 80.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 775846,
+                      "name": "确定捆绑",
+                      "answerCount": 18,
+                      "questionCount": 228,
+                      "correctRatio": 61.111111111111114,
+                      "score": 0.5177816398664213,
+                      "targetCorrectRatio": 80.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 775847,
+                      "name": "确定顺序",
+                      "answerCount": 26,
+                      "questionCount": 288,
+                      "correctRatio": 57.69230769230769,
+                      "score": 0.5010621333258604,
+                      "targetCorrectRatio": 80.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 775848,
+                      "name": "确定尾句",
+                      "answerCount": 6,
+                      "questionCount": 42,
+                      "correctRatio": 33.333333333333336,
+                      "score": 0.3548054603166873,
+                      "targetCorrectRatio": 80.0,
+                      "keypoints": null
+                    }
+                  ]
+                },
+                {
+                  "id": 67543,
+                  "name": "语句填空题",
+                  "answerCount": 29,
+                  "questionCount": 377,
+                  "correctRatio": 75.86206896551724,
+                  "score": 0.6752461801191878,
+                  "targetCorrectRatio": 75.0,
+                  "keypoints": [
+                    {
+                      "id": 775849,
+                      "name": "横线在开头",
+                      "answerCount": 6,
+                      "questionCount": 65,
+                      "correctRatio": 66.66666666666667,
+                      "score": 0.6760463380307522,
+                      "targetCorrectRatio": 75.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 775850,
+                      "name": "横线在中间",
+                      "answerCount": 14,
+                      "questionCount": 154,
+                      "correctRatio": 78.57142857142857,
+                      "score": 0.6613188378607068,
+                      "targetCorrectRatio": 75.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 775851,
+                      "name": "横线在结尾",
+                      "answerCount": 8,
+                      "questionCount": 154,
+                      "correctRatio": 75.0,
+                      "score": 0.6751932552139533,
+                      "targetCorrectRatio": 75.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 843116,
+                      "name": "特殊题型-问语句在文中的位置",
+                      "answerCount": 1,
+                      "questionCount": 6,
+                      "correctRatio": 100.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 0.0,
+                      "keypoints": null
+                    }
+                  ]
+                },
+                {
+                  "id": 648970,
+                  "name": "接语选择题",
+                  "answerCount": 18,
+                  "questionCount": 208,
+                  "correctRatio": 61.111111111111114,
+                  "score": 0.5648643042117322,
+                  "targetCorrectRatio": 80.0,
+                  "keypoints": null
+                },
+                {
+                  "id": 843115,
+                  "name": "语句排序题、语句填空题混合题型",
+                  "answerCount": 0,
+                  "questionCount": 15,
+                  "correctRatio": 0.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 80.0,
+                  "keypoints": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 27138,
+          "name": "数量关系",
+          "answerCount": 0,
+          "questionCount": 3053,
+          "correctRatio": 0.0,
+          "score": 0.0,
+          "targetCorrectRatio": 65.0,
+          "keypoints": [
+            {
+              "id": 27157,
+              "name": "数学运算",
+              "answerCount": 0,
+              "questionCount": 3053,
+              "correctRatio": 0.0,
+              "score": 0.0,
+              "targetCorrectRatio": 55.00000000000001,
+              "keypoints": [
+                {
+                  "id": 27219,
+                  "name": "平均数问题",
+                  "answerCount": 0,
+                  "questionCount": 59,
+                  "correctRatio": 0.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 66.0,
+                  "keypoints": null
+                },
+                {
+                  "id": 27221,
+                  "name": "工程问题",
+                  "answerCount": 0,
+                  "questionCount": 272,
+                  "correctRatio": 0.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 64.0,
+                  "keypoints": [
+                    {
+                      "id": 776675,
+                      "name": "给效率比例型",
+                      "answerCount": 0,
+                      "questionCount": 101,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 64.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 776676,
+                      "name": "给具体单位型",
+                      "answerCount": 0,
+                      "questionCount": 76,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 64.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 776991,
+                      "name": "给完工时间型",
+                      "answerCount": 0,
+                      "questionCount": 68,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 64.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 776992,
+                      "name": "工程问题-其他",
+                      "answerCount": 0,
+                      "questionCount": 27,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 64.0,
+                      "keypoints": null
+                    }
+                  ]
+                },
+                {
+                  "id": 27401,
+                  "name": "最值问题",
+                  "answerCount": 0,
+                  "questionCount": 283,
+                  "correctRatio": 0.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 53.0,
+                  "keypoints": [
+                    {
+                      "id": 776678,
+                      "name": "非典型最值问题",
+                      "answerCount": 0,
+                      "questionCount": 175,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 53.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 776679,
+                      "name": "构造数列",
+                      "answerCount": 0,
+                      "questionCount": 58,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 53.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 776995,
+                      "name": "最不利构造",
+                      "answerCount": 0,
+                      "questionCount": 38,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 53.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 776996,
+                      "name": "多集合反向构造",
+                      "answerCount": 0,
+                      "questionCount": 12,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 53.0,
+                      "keypoints": null
+                    }
+                  ]
+                },
+                {
+                  "id": 27243,
+                  "name": "和差倍比问题",
+                  "answerCount": 0,
+                  "questionCount": 547,
+                  "correctRatio": 0.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 57.99999999999999,
+                  "keypoints": null
+                },
+                {
+                  "id": 27245,
+                  "name": "数列问题",
+                  "answerCount": 0,
+                  "questionCount": 107,
+                  "correctRatio": 0.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 27.0,
+                  "keypoints": null
+                },
+                {
+                  "id": 27247,
+                  "name": "行程问题",
+                  "answerCount": 0,
+                  "questionCount": 345,
+                  "correctRatio": 0.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 55.00000000000001,
+                  "keypoints": [
+                    {
+                      "id": 776999,
+                      "name": "火车过桥",
+                      "answerCount": 0,
+                      "questionCount": 8,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 55.00000000000001,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 777000,
+                      "name": "平均速度",
+                      "answerCount": 0,
+                      "questionCount": 18,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 55.00000000000001,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 776685,
+                      "name": "普通行程",
+                      "answerCount": 0,
+                      "questionCount": 138,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 55.00000000000001,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 776686,
+                      "name": "相遇追及",
+                      "answerCount": 0,
+                      "questionCount": 146,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 55.00000000000001,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 777001,
+                      "name": "流水行船",
+                      "answerCount": 0,
+                      "questionCount": 32,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 55.00000000000001,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 776687,
+                      "name": "行程问题-其他",
+                      "answerCount": 0,
+                      "questionCount": 12,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 55.00000000000001,
+                      "keypoints": null
+                    }
+                  ]
+                },
+                {
+                  "id": 27249,
+                  "name": "几何问题",
+                  "answerCount": 0,
+                  "questionCount": 422,
+                  "correctRatio": 0.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 49.0,
+                  "keypoints": [
+                    {
+                      "id": 776688,
+                      "name": "几何公式类-平面图形",
+                      "answerCount": 0,
+                      "questionCount": 201,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 0.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 776689,
+                      "name": "几何公式类-立体图形",
+                      "answerCount": 0,
+                      "questionCount": 105,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 0.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 849795,
+                      "name": "几何结论类-相似图形",
+                      "answerCount": 0,
+                      "questionCount": 53,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 0.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 849796,
+                      "name": "几何结论类-三角形相关",
+                      "answerCount": 0,
+                      "questionCount": 170,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 0.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 849797,
+                      "name": "几何结论类-几何小题型",
+                      "answerCount": 0,
+                      "questionCount": 46,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 0.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 849798,
+                      "name": "几何其他题型",
+                      "answerCount": 0,
+                      "questionCount": 47,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 0.0,
+                      "keypoints": null
+                    }
+                  ]
+                },
+                {
+                  "id": 27251,
+                  "name": "容斥原理问题",
+                  "answerCount": 0,
+                  "questionCount": 109,
+                  "correctRatio": 0.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 57.99999999999999,
+                  "keypoints": [
+                    {
+                      "id": 777002,
+                      "name": "两集合",
+                      "answerCount": 0,
+                      "questionCount": 55,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 57.99999999999999,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 776690,
+                      "name": "三集合",
+                      "answerCount": 0,
+                      "questionCount": 54,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 57.99999999999999,
+                      "keypoints": null
+                    }
+                  ]
+                },
+                {
+                  "id": 27253,
+                  "name": "排列组合问题",
+                  "answerCount": 0,
+                  "questionCount": 261,
+                  "correctRatio": 0.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 48.0,
+                  "keypoints": [
+                    {
+                      "id": 776691,
+                      "name": "基础排列组合",
+                      "answerCount": 0,
+                      "questionCount": 197,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 48.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 776692,
+                      "name": "相邻问题",
+                      "answerCount": 0,
+                      "questionCount": 21,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 48.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 776693,
+                      "name": "不相邻问题",
+                      "answerCount": 0,
+                      "questionCount": 21,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 48.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 777003,
+                      "name": "同素分堆问题",
+                      "answerCount": 0,
+                      "questionCount": 9,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 48.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 777004,
+                      "name": "环形排列问题",
+                      "answerCount": 0,
+                      "questionCount": 7,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 48.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 777005,
+                      "name": "错位排列",
+                      "answerCount": 0,
+                      "questionCount": 2,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 48.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 776694,
+                      "name": "排列组合问题-其他",
+                      "answerCount": 0,
+                      "questionCount": 13,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 48.0,
+                      "keypoints": null
+                    }
+                  ]
+                },
+                {
+                  "id": 27255,
+                  "name": "概率问题",
+                  "answerCount": 0,
+                  "questionCount": 227,
+                  "correctRatio": 0.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 47.0,
+                  "keypoints": [
+                    {
+                      "id": 776695,
+                      "name": "给情况求概率",
+                      "answerCount": 0,
+                      "questionCount": 156,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 47.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 776696,
+                      "name": "给概率求概率",
+                      "answerCount": 0,
+                      "questionCount": 52,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 47.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 777006,
+                      "name": "概率问题-其他",
+                      "answerCount": 0,
+                      "questionCount": 20,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 47.0,
+                      "keypoints": null
+                    }
+                  ]
+                },
+                {
+                  "id": 27257,
+                  "name": "经济利润问题",
+                  "answerCount": 0,
+                  "questionCount": 254,
+                  "correctRatio": 0.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 59.0,
+                  "keypoints": null
+                },
+                {
+                  "id": 27261,
+                  "name": "不定方程问题",
+                  "answerCount": 0,
+                  "questionCount": 99,
+                  "correctRatio": 0.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 62.0,
+                  "keypoints": [
+                    {
+                      "id": 776697,
+                      "name": "普通不定方程",
+                      "answerCount": 0,
+                      "questionCount": 53,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 62.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 776698,
+                      "name": "不定方程组",
+                      "answerCount": 0,
+                      "questionCount": 46,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 62.0,
+                      "keypoints": null
+                    }
+                  ]
+                },
+                {
+                  "id": 833722,
+                  "name": "周期问题",
+                  "answerCount": 0,
+                  "questionCount": 88,
+                  "correctRatio": 0.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 67.0,
+                  "keypoints": [
+                    {
+                      "id": 833723,
+                      "name": "周期相遇问题",
+                      "answerCount": 0,
+                      "questionCount": 34,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 67.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 833724,
+                      "name": "周期余数问题",
+                      "answerCount": 0,
+                      "questionCount": 37,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 67.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 833725,
+                      "name": "周期问题-其他",
+                      "answerCount": 0,
+                      "questionCount": 17,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 67.0,
+                      "keypoints": null
+                    }
+                  ]
+                },
+                {
+                  "id": 27269,
+                  "name": "钟表问题",
+                  "answerCount": 0,
+                  "questionCount": 29,
+                  "correctRatio": 0.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 55.00000000000001,
+                  "keypoints": null
+                },
+                {
+                  "id": 27271,
+                  "name": "统筹规划问题",
+                  "answerCount": 0,
+                  "questionCount": 101,
+                  "correctRatio": 0.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 75.0,
+                  "keypoints": null
+                },
+                {
+                  "id": 789469,
+                  "name": "星期日期问题",
+                  "answerCount": 0,
+                  "questionCount": 57,
+                  "correctRatio": 0.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 41.0,
+                  "keypoints": null
+                },
+                {
+                  "id": 810840,
+                  "name": "牛吃草问题",
+                  "answerCount": 0,
+                  "questionCount": 21,
+                  "correctRatio": 0.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 38.0,
+                  "keypoints": null
+                },
+                {
+                  "id": 820101,
+                  "name": "溶液问题",
+                  "answerCount": 0,
+                  "questionCount": 89,
+                  "correctRatio": 0.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 54.0,
+                  "keypoints": [
+                    {
+                      "id": 820102,
+                      "name": "两溶液混合",
+                      "answerCount": 0,
+                      "questionCount": 47,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 54.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 820103,
+                      "name": "多溶液混合",
+                      "answerCount": 0,
+                      "questionCount": 33,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 54.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 820104,
+                      "name": "溶液问题-其他",
+                      "answerCount": 0,
+                      "questionCount": 9,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 54.0,
+                      "keypoints": null
+                    }
+                  ]
+                },
+                {
+                  "id": 842906,
+                  "name": "分段计算问题",
+                  "answerCount": 0,
+                  "questionCount": 46,
+                  "correctRatio": 0.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 60.0,
+                  "keypoints": null
+                },
+                {
+                  "id": 842907,
+                  "name": "函数最值问题",
+                  "answerCount": 0,
+                  "questionCount": 23,
+                  "correctRatio": 0.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 64.0,
+                  "keypoints": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 27139,
+          "name": "判断推理",
+          "answerCount": 209,
+          "questionCount": 8600,
+          "correctRatio": 59.80861244019139,
+          "score": 0.6930394538953314,
+          "targetCorrectRatio": 75.0,
+          "keypoints": [
+            {
+              "id": 27158,
+              "name": "图形推理",
+              "answerCount": 158,
+              "questionCount": 2132,
+              "correctRatio": 62.65822784810127,
+              "score": 0.7090665732195383,
+              "targetCorrectRatio": 78.0,
+              "keypoints": [
+                {
+                  "id": 778976,
+                  "name": "位置规律",
+                  "answerCount": 93,
+                  "questionCount": 298,
+                  "correctRatio": 70.96774193548387,
+                  "score": 0.7584127166024526,
+                  "targetCorrectRatio": 80.0,
+                  "keypoints": [
+                    {
+                      "id": 27407,
+                      "name": "位置规律-平移",
+                      "answerCount": 50,
+                      "questionCount": 154,
+                      "correctRatio": 78.0,
+                      "score": 0.811512312608015,
+                      "targetCorrectRatio": 85.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 650548,
+                      "name": "位置规律-翻转",
+                      "answerCount": 9,
+                      "questionCount": 27,
+                      "correctRatio": 77.77777777777777,
+                      "score": 0.832055332531092,
+                      "targetCorrectRatio": 85.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 650550,
+                      "name": "位置规律-综合",
+                      "answerCount": 13,
+                      "questionCount": 33,
+                      "correctRatio": 61.53846153846154,
+                      "score": 0.6798707224128785,
+                      "targetCorrectRatio": 85.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 843117,
+                      "name": "位置规律-旋转",
+                      "answerCount": 22,
+                      "questionCount": 88,
+                      "correctRatio": 59.09090909090909,
+                      "score": 0.6491677433566003,
+                      "targetCorrectRatio": 85.0,
+                      "keypoints": null
+                    }
+                  ]
+                },
+                {
+                  "id": 778977,
+                  "name": "样式规律",
+                  "answerCount": 1,
+                  "questionCount": 270,
+                  "correctRatio": 100.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 80.0,
+                  "keypoints": [
+                    {
+                      "id": 650552,
+                      "name": "样式规律-加减同异",
+                      "answerCount": 1,
+                      "questionCount": 132,
+                      "correctRatio": 100.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 80.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 833726,
+                      "name": "样式规律-黑白运算",
+                      "answerCount": 0,
+                      "questionCount": 72,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 80.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 843118,
+                      "name": "样式规律-遍历",
+                      "answerCount": 0,
+                      "questionCount": 75,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 80.0,
+                      "keypoints": null
+                    }
+                  ]
+                },
+                {
+                  "id": 778978,
+                  "name": "属性规律",
+                  "answerCount": 13,
+                  "questionCount": 209,
+                  "correctRatio": 69.23076923076923,
+                  "score": 0.7739512952168507,
+                  "targetCorrectRatio": 75.0,
+                  "keypoints": [
+                    {
+                      "id": 650554,
+                      "name": "属性规律-对称性",
+                      "answerCount": 11,
+                      "questionCount": 161,
+                      "correctRatio": 72.72727272727273,
+                      "score": 0.7977050986787573,
+                      "targetCorrectRatio": 75.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 843119,
+                      "name": "属性规律-开闭性",
+                      "answerCount": 1,
+                      "questionCount": 20,
+                      "correctRatio": 100.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 75.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 843120,
+                      "name": "属性规律-曲直性",
+                      "answerCount": 1,
+                      "questionCount": 31,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 75.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 843121,
+                      "name": "属性规律-复合",
+                      "answerCount": 0,
+                      "questionCount": 0,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 75.0,
+                      "keypoints": null
+                    }
+                  ]
+                },
+                {
+                  "id": 778979,
+                  "name": "数量规律",
+                  "answerCount": 36,
+                  "questionCount": 743,
+                  "correctRatio": 58.333333333333336,
+                  "score": 0.6943195513592432,
+                  "targetCorrectRatio": 70.0,
+                  "keypoints": [
+                    {
+                      "id": 27413,
+                      "name": "数量规律-点",
+                      "answerCount": 4,
+                      "questionCount": 86,
+                      "correctRatio": 50.0,
+                      "score": 0.6374993226244683,
+                      "targetCorrectRatio": 65.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 650558,
+                      "name": "数量规律-线",
+                      "answerCount": 9,
+                      "questionCount": 209,
+                      "correctRatio": 66.66666666666667,
+                      "score": 0.7564532252857493,
+                      "targetCorrectRatio": 70.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 650560,
+                      "name": "数量规律-角",
+                      "answerCount": 0,
+                      "questionCount": 21,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 60.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 650562,
+                      "name": "数量规律-面",
+                      "answerCount": 14,
+                      "questionCount": 174,
+                      "correctRatio": 42.857142857142854,
+                      "score": 0.5814205463514781,
+                      "targetCorrectRatio": 75.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 650564,
+                      "name": "数量规律-素",
+                      "answerCount": 9,
+                      "questionCount": 217,
+                      "correctRatio": 77.77777777777777,
+                      "score": 0.8218622453003271,
+                      "targetCorrectRatio": 75.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 778986,
+                      "name": "数量规律-复合",
+                      "answerCount": 1,
+                      "questionCount": 68,
+                      "correctRatio": 100.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 60.0,
+                      "keypoints": null
+                    }
+                  ]
+                },
+                {
+                  "id": 778980,
+                  "name": "特殊规律",
+                  "answerCount": 6,
+                  "questionCount": 262,
+                  "correctRatio": 50.0,
+                  "score": 0.6374993226244683,
+                  "targetCorrectRatio": 75.0,
+                  "keypoints": [
+                    {
+                      "id": 789470,
+                      "name": "特殊规律-平面拼合",
+                      "answerCount": 1,
+                      "questionCount": 141,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 85.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 789471,
+                      "name": "特殊规律-图形间关系",
+                      "answerCount": 5,
+                      "questionCount": 91,
+                      "correctRatio": 60.0,
+                      "score": 0.7102586531502518,
+                      "targetCorrectRatio": 85.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 843122,
+                      "name": "特殊规律-功能元素",
+                      "answerCount": 0,
+                      "questionCount": 30,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 80.0,
+                      "keypoints": null
+                    }
+                  ]
+                },
+                {
+                  "id": 778981,
+                  "name": "空间类",
+                  "answerCount": 17,
+                  "questionCount": 421,
+                  "correctRatio": 29.41176470588235,
+                  "score": 0.4605768880185519,
+                  "targetCorrectRatio": 75.0,
+                  "keypoints": [
+                    {
+                      "id": 747959,
+                      "name": "空间类-立体拼合",
+                      "answerCount": 4,
+                      "questionCount": 58,
+                      "correctRatio": 25.0,
+                      "score": 0.4145281312416793,
+                      "targetCorrectRatio": 75.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 749737,
+                      "name": "空间类-三视图",
+                      "answerCount": 4,
+                      "questionCount": 50,
+                      "correctRatio": 50.0,
+                      "score": 0.6374993226244683,
+                      "targetCorrectRatio": 80.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 27417,
+                      "name": "空间类-空间重构-六面体",
+                      "answerCount": 8,
+                      "questionCount": 184,
+                      "correctRatio": 25.0,
+                      "score": 0.4145281312416793,
+                      "targetCorrectRatio": 85.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 778987,
+                      "name": "空间类-多面体折叠",
+                      "answerCount": 0,
+                      "questionCount": 21,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 75.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 791740,
+                      "name": "空间类-空间重构-四面体",
+                      "answerCount": 0,
+                      "questionCount": 65,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 75.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 843123,
+                      "name": "空间类-截面图",
+                      "answerCount": 1,
+                      "questionCount": 43,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 60.0,
+                      "keypoints": null
+                    }
+                  ]
+                },
+                {
+                  "id": 778982,
+                  "name": "文字/字母/数字类",
+                  "answerCount": 2,
+                  "questionCount": 69,
+                  "correctRatio": 0.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 80.0,
+                  "keypoints": null
+                },
+                {
+                  "id": 778983,
+                  "name": "黑白块类",
+                  "answerCount": 7,
+                  "questionCount": 81,
+                  "correctRatio": 100.0,
+                  "score": 0.9838522962251387,
+                  "targetCorrectRatio": 80.0,
+                  "keypoints": null
+                }
+              ]
+            },
+            {
+              "id": 27159,
+              "name": "定义判断",
+              "answerCount": 23,
+              "questionCount": 1902,
+              "correctRatio": 47.82608695652174,
+              "score": 0.6208722292192276,
+              "targetCorrectRatio": 80.0,
+              "keypoints": [
+                {
+                  "id": 27437,
+                  "name": "单定义",
+                  "answerCount": 21,
+                  "questionCount": 1533,
+                  "correctRatio": 42.857142857142854,
+                  "score": 0.5814205463514781,
+                  "targetCorrectRatio": 80.0,
+                  "keypoints": [
+                    {
+                      "id": 778988,
+                      "name": "主客体",
+                      "answerCount": 1,
+                      "questionCount": 110,
+                      "correctRatio": 100.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 80.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 778989,
+                      "name": "大前提",
+                      "answerCount": 1,
+                      "questionCount": 154,
+                      "correctRatio": 100.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 80.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 778990,
+                      "name": "方式目的",
+                      "answerCount": 9,
+                      "questionCount": 468,
+                      "correctRatio": 22.22222222222222,
+                      "score": 0.38328383153447276,
+                      "targetCorrectRatio": 80.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 778991,
+                      "name": "原因结果",
+                      "answerCount": 0,
+                      "questionCount": 192,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 80.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 778992,
+                      "name": "故事类",
+                      "answerCount": 0,
+                      "questionCount": 50,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 80.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 778993,
+                      "name": "单定义-其他句式",
+                      "answerCount": 8,
+                      "questionCount": 489,
+                      "correctRatio": 50.0,
+                      "score": 0.6374993226244683,
+                      "targetCorrectRatio": 80.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 778994,
+                      "name": "拆词",
+                      "answerCount": 2,
+                      "questionCount": 76,
+                      "correctRatio": 50.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 80.0,
+                      "keypoints": null
+                    }
+                  ]
+                },
+                {
+                  "id": 27439,
+                  "name": "多定义",
+                  "answerCount": 2,
+                  "questionCount": 370,
+                  "correctRatio": 100.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 80.0,
+                  "keypoints": [
+                    {
+                      "id": 778995,
+                      "name": "常规问法",
+                      "answerCount": 1,
+                      "questionCount": 269,
+                      "correctRatio": 100.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 80.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 778996,
+                      "name": "特殊问法",
+                      "answerCount": 1,
+                      "questionCount": 101,
+                      "correctRatio": 100.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 80.0,
+                      "keypoints": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": 27161,
+              "name": "类比推理",
+              "answerCount": 20,
+              "questionCount": 1938,
+              "correctRatio": 60.0,
+              "score": 0.7102586531502518,
+              "targetCorrectRatio": 60.0,
+              "keypoints": [
+                {
+                  "id": 779013,
+                  "name": "语义关系",
+                  "answerCount": 3,
+                  "questionCount": 268,
+                  "correctRatio": 33.333333333333336,
+                  "score": 0.4984590870761536,
+                  "targetCorrectRatio": 70.0,
+                  "keypoints": [
+                    {
+                      "id": 27441,
+                      "name": "语义关系-近义关系",
+                      "answerCount": 1,
+                      "questionCount": 97,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 70.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 843124,
+                      "name": "语义关系-反义关系",
+                      "answerCount": 1,
+                      "questionCount": 80,
+                      "correctRatio": 100.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 70.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 652716,
+                      "name": "语义关系-比喻象征义",
+                      "answerCount": 1,
+                      "questionCount": 58,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 70.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 779015,
+                      "name": "语义-其他",
+                      "answerCount": 0,
+                      "questionCount": 52,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 70.0,
+                      "keypoints": null
+                    }
+                  ]
+                },
+                {
+                  "id": 779014,
+                  "name": "逻辑关系",
+                  "answerCount": 17,
+                  "questionCount": 1597,
+                  "correctRatio": 64.70588235294117,
+                  "score": 0.7429917760737649,
+                  "targetCorrectRatio": 75.0,
+                  "keypoints": [
+                    {
+                      "id": 27445,
+                      "name": "逻辑关系-全同关系",
+                      "answerCount": 0,
+                      "questionCount": 36,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 70.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 27453,
+                      "name": "逻辑关系-包容关系",
+                      "answerCount": 3,
+                      "questionCount": 411,
+                      "correctRatio": 66.66666666666667,
+                      "score": 0.7564532252857493,
+                      "targetCorrectRatio": 75.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 27455,
+                      "name": "逻辑关系-对应关系",
+                      "answerCount": 11,
+                      "questionCount": 923,
+                      "correctRatio": 81.81818181818181,
+                      "score": 0.8598501987407026,
+                      "targetCorrectRatio": 80.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 789475,
+                      "name": "逻辑关系-并列关系",
+                      "answerCount": 6,
+                      "questionCount": 374,
+                      "correctRatio": 33.333333333333336,
+                      "score": 0.4984590870761536,
+                      "targetCorrectRatio": 75.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 789476,
+                      "name": "逻辑关系-交叉关系",
+                      "answerCount": 0,
+                      "questionCount": 83,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 75.0,
+                      "keypoints": null
+                    }
+                  ]
+                },
+                {
+                  "id": 27443,
+                  "name": "语法关系",
+                  "answerCount": 2,
+                  "questionCount": 130,
+                  "correctRatio": 100.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 80.0,
+                  "keypoints": null
+                },
+                {
+                  "id": 779016,
+                  "name": "拆分思维",
+                  "answerCount": 4,
+                  "questionCount": 99,
+                  "correctRatio": 50.0,
+                  "score": 0.6374993226244683,
+                  "targetCorrectRatio": 80.0,
+                  "keypoints": null
+                }
+              ]
+            },
+            {
+              "id": 27160,
+              "name": "逻辑判断",
+              "answerCount": 8,
+              "questionCount": 2628,
+              "correctRatio": 37.5,
+              "score": 0.5361385436830903,
+              "targetCorrectRatio": 80.0,
+              "keypoints": [
+                {
+                  "id": 27429,
+                  "name": "加强题型",
+                  "answerCount": 3,
+                  "questionCount": 738,
+                  "correctRatio": 33.333333333333336,
+                  "score": 0.4984590870761536,
+                  "targetCorrectRatio": 80.0,
+                  "keypoints": [
+                    {
+                      "id": 778997,
+                      "name": "搭桥",
+                      "answerCount": 1,
+                      "questionCount": 194,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 80.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 778998,
+                      "name": "必要条件",
+                      "answerCount": 0,
+                      "questionCount": 109,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 80.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 778999,
+                      "name": "补充论据",
+                      "answerCount": 2,
+                      "questionCount": 340,
+                      "correctRatio": 50.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 80.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 779000,
+                      "name": "加强选非题",
+                      "answerCount": 0,
+                      "questionCount": 96,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 80.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 791741,
+                      "name": "加强-实验类",
+                      "answerCount": 0,
+                      "questionCount": 48,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 0.0,
+                      "keypoints": null
+                    }
+                  ]
+                },
+                {
+                  "id": 27431,
+                  "name": "削弱题型",
+                  "answerCount": 3,
+                  "questionCount": 637,
+                  "correctRatio": 33.333333333333336,
+                  "score": 0.4984590870761536,
+                  "targetCorrectRatio": 80.0,
+                  "keypoints": [
+                    {
+                      "id": 779002,
+                      "name": "削弱论点",
+                      "answerCount": 2,
+                      "questionCount": 351,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 80.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 779003,
+                      "name": "拆桥",
+                      "answerCount": 0,
+                      "questionCount": 96,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 80.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 779004,
+                      "name": "削弱论据",
+                      "answerCount": 1,
+                      "questionCount": 52,
+                      "correctRatio": 100.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 80.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 779005,
+                      "name": "因果倒置",
+                      "answerCount": 0,
+                      "questionCount": 25,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 80.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 779006,
+                      "name": "他因削弱",
+                      "answerCount": 0,
+                      "questionCount": 42,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 80.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 779007,
+                      "name": "削弱选非题",
+                      "answerCount": 0,
+                      "questionCount": 72,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 80.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 791742,
+                      "name": "削弱-实验类",
+                      "answerCount": 1,
+                      "questionCount": 53,
+                      "correctRatio": 100.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 0.0,
+                      "keypoints": null
+                    }
+                  ]
+                },
+                {
+                  "id": 27423,
+                  "name": "翻译推理",
+                  "answerCount": 1,
+                  "questionCount": 442,
+                  "correctRatio": 0.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 75.0,
+                  "keypoints": [
+                    {
+                      "id": 779009,
+                      "name": "常规翻译",
+                      "answerCount": 1,
+                      "questionCount": 304,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 75.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 779010,
+                      "name": "集合推理",
+                      "answerCount": 0,
+                      "questionCount": 69,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 75.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 779011,
+                      "name": "推理形式",
+                      "answerCount": 0,
+                      "questionCount": 71,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 75.0,
+                      "keypoints": null
+                    }
+                  ]
+                },
+                {
+                  "id": 27427,
+                  "name": "组合排列-单题",
+                  "answerCount": 0,
+                  "questionCount": 300,
+                  "correctRatio": 0.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 70.0,
+                  "keypoints": [
+                    {
+                      "id": 852073,
+                      "name": "排除法",
+                      "answerCount": 0,
+                      "questionCount": 33,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 70.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 852074,
+                      "name": "代入法",
+                      "answerCount": 0,
+                      "questionCount": 47,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 70.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 852075,
+                      "name": "从最大信息开始推",
+                      "answerCount": 0,
+                      "questionCount": 50,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 70.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 852076,
+                      "name": "假设",
+                      "answerCount": 0,
+                      "questionCount": 45,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 70.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 852077,
+                      "name": "框架题",
+                      "answerCount": 0,
+                      "questionCount": 43,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 70.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 852078,
+                      "name": "从确定信息开始推",
+                      "answerCount": 0,
+                      "questionCount": 67,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 70.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 943500,
+                      "name": "组合排列-单题-其他",
+                      "answerCount": 0,
+                      "questionCount": 19,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 0.0,
+                      "keypoints": null
+                    }
+                  ]
+                },
+                {
+                  "id": 27425,
+                  "name": "真假推理",
+                  "answerCount": 0,
+                  "questionCount": 119,
+                  "correctRatio": 0.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 80.0,
+                  "keypoints": [
+                    {
+                      "id": 852079,
+                      "name": "只有一真/一假",
+                      "answerCount": 0,
+                      "questionCount": 59,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 80.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 852080,
+                      "name": "两真两假",
+                      "answerCount": 0,
+                      "questionCount": 22,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 80.0,
+                      "keypoints": null
+                    },
+                    {
+                      "id": 852081,
+                      "name": "真假推理-其他",
+                      "answerCount": 0,
+                      "questionCount": 38,
+                      "correctRatio": 0.0,
+                      "score": 0.0,
+                      "targetCorrectRatio": 80.0,
+                      "keypoints": null
+                    }
+                  ]
+                },
+                {
+                  "id": 27433,
+                  "name": "日常结论",
+                  "answerCount": 1,
+                  "questionCount": 220,
+                  "correctRatio": 100.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 85.0,
+                  "keypoints": null
+                },
+                {
+                  "id": 789473,
+                  "name": "论证结构",
+                  "answerCount": 0,
+                  "questionCount": 70,
+                  "correctRatio": 0.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 75.0,
+                  "keypoints": null
+                },
+                {
+                  "id": 789474,
+                  "name": "原因解释",
+                  "answerCount": 0,
+                  "questionCount": 103,
+                  "correctRatio": 0.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 80.0,
+                  "keypoints": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 27140,
+          "name": "资料分析",
+          "answerCount": 15,
+          "questionCount": 3991,
+          "correctRatio": 53.333333333333336,
+          "score": 0.46025870204284763,
+          "targetCorrectRatio": 88.0,
+          "keypoints": [
+            {
+              "id": 27162,
+              "name": "文字资料",
+              "answerCount": 15,
+              "questionCount": 936,
+              "correctRatio": 53.333333333333336,
+              "score": 0.46025870204284763,
+              "targetCorrectRatio": 86.0,
+              "keypoints": null
+            },
+            {
+              "id": 27163,
+              "name": "统计表",
+              "answerCount": 0,
+              "questionCount": 715,
+              "correctRatio": 0.0,
+              "score": 0.0,
+              "targetCorrectRatio": 88.0,
+              "keypoints": null
+            },
+            {
+              "id": 27164,
+              "name": "统计图",
+              "answerCount": 0,
+              "questionCount": 365,
+              "correctRatio": 0.0,
+              "score": 0.0,
+              "targetCorrectRatio": 88.0,
+              "keypoints": null
+            },
+            {
+              "id": 27165,
+              "name": "综合资料",
+              "answerCount": 0,
+              "questionCount": 1965,
+              "correctRatio": 0.0,
+              "score": 0.0,
+              "targetCorrectRatio": 86.0,
+              "keypoints": null
+            },
+            {
+              "id": 626202,
+              "name": "简单计算",
+              "answerCount": 0,
+              "questionCount": 690,
+              "correctRatio": 0.0,
+              "score": 0.0,
+              "targetCorrectRatio": 90.0,
+              "keypoints": [
+                {
+                  "id": 626204,
+                  "name": "直接找数",
+                  "answerCount": 0,
+                  "questionCount": 292,
+                  "correctRatio": 0.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 85.0,
+                  "keypoints": null
+                },
+                {
+                  "id": 626206,
+                  "name": "简单加减计算",
+                  "answerCount": 0,
+                  "questionCount": 320,
+                  "correctRatio": 0.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 89.0,
+                  "keypoints": null
+                },
+                {
+                  "id": 626212,
+                  "name": "排序类",
+                  "answerCount": 0,
+                  "questionCount": 78,
+                  "correctRatio": 0.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 95.0,
+                  "keypoints": null
+                }
+              ]
+            },
+            {
+              "id": 626246,
+              "name": "比重问题",
+              "answerCount": 5,
+              "questionCount": 781,
+              "correctRatio": 60.0,
+              "score": 0.5350008985246105,
+              "targetCorrectRatio": 90.0,
+              "keypoints": [
+                {
+                  "id": 626250,
+                  "name": "现期比重",
+                  "answerCount": 3,
+                  "questionCount": 548,
+                  "correctRatio": 100.0,
+                  "score": 0.985226147676732,
+                  "targetCorrectRatio": 92.0,
+                  "keypoints": null
+                },
+                {
+                  "id": 626258,
+                  "name": "基期比重",
+                  "answerCount": 1,
+                  "questionCount": 102,
+                  "correctRatio": 0.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 83.0,
+                  "keypoints": null
+                },
+                {
+                  "id": 626262,
+                  "name": "两期比重",
+                  "answerCount": 1,
+                  "questionCount": 125,
+                  "correctRatio": 0.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 90.0,
+                  "keypoints": null
+                },
+                {
+                  "id": 791744,
+                  "name": "混合比重",
+                  "answerCount": 0,
+                  "questionCount": 6,
+                  "correctRatio": 0.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 90.0,
+                  "keypoints": null
+                }
+              ]
+            },
+            {
+              "id": 626274,
+              "name": "平均数问题",
+              "answerCount": 3,
+              "questionCount": 320,
+              "correctRatio": 66.66666666666667,
+              "score": 0.0,
+              "targetCorrectRatio": 85.0,
+              "keypoints": [
+                {
+                  "id": 626276,
+                  "name": "基期平均数",
+                  "answerCount": 0,
+                  "questionCount": 27,
+                  "correctRatio": 0.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 81.0,
+                  "keypoints": null
+                },
+                {
+                  "id": 626284,
+                  "name": "现期平均数",
+                  "answerCount": 2,
+                  "questionCount": 229,
+                  "correctRatio": 50.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 95.0,
+                  "keypoints": null
+                },
+                {
+                  "id": 626288,
+                  "name": "平均数的增长率",
+                  "answerCount": 0,
+                  "questionCount": 37,
+                  "correctRatio": 0.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 85.0,
+                  "keypoints": null
+                },
+                {
+                  "id": 654168,
+                  "name": "平均数的增长量",
+                  "answerCount": 1,
+                  "questionCount": 20,
+                  "correctRatio": 100.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 81.0,
+                  "keypoints": null
+                },
+                {
+                  "id": 654170,
+                  "name": "两期平均数比较",
+                  "answerCount": 0,
+                  "questionCount": 8,
+                  "correctRatio": 0.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 79.0,
+                  "keypoints": null
+                }
+              ]
+            },
+            {
+              "id": 626290,
+              "name": "倍数与比值相关",
+              "answerCount": 1,
+              "questionCount": 277,
+              "correctRatio": 0.0,
+              "score": 0.0,
+              "targetCorrectRatio": 90.0,
+              "keypoints": [
+                {
+                  "id": 626292,
+                  "name": "比值计算",
+                  "answerCount": 0,
+                  "questionCount": 49,
+                  "correctRatio": 0.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 97.0,
+                  "keypoints": null
+                },
+                {
+                  "id": 626296,
+                  "name": "基期倍数",
+                  "answerCount": 0,
+                  "questionCount": 46,
+                  "correctRatio": 0.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 86.0,
+                  "keypoints": null
+                },
+                {
+                  "id": 626302,
+                  "name": "现期倍数",
+                  "answerCount": 1,
+                  "questionCount": 156,
+                  "correctRatio": 0.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 92.0,
+                  "keypoints": null
+                },
+                {
+                  "id": 791745,
+                  "name": "比值比较",
+                  "answerCount": 0,
+                  "questionCount": 25,
+                  "correctRatio": 0.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 68.0,
+                  "keypoints": null
+                },
+                {
+                  "id": 791746,
+                  "name": "倍数比较",
+                  "answerCount": 0,
+                  "questionCount": 1,
+                  "correctRatio": 0.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 0.0,
+                  "keypoints": null
+                }
+              ]
+            },
+            {
+              "id": 626312,
+              "name": "综合分析",
+              "answerCount": 2,
+              "questionCount": 750,
+              "correctRatio": 50.0,
+              "score": 0.0,
+              "targetCorrectRatio": 78.0,
+              "keypoints": null
+            },
+            {
+              "id": 654134,
+              "name": "基期与现期",
+              "answerCount": 1,
+              "questionCount": 301,
+              "correctRatio": 0.0,
+              "score": 0.0,
+              "targetCorrectRatio": 85.0,
+              "keypoints": [
+                {
+                  "id": 654140,
+                  "name": "基期计算",
+                  "answerCount": 0,
+                  "questionCount": 137,
+                  "correctRatio": 0.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 93.0,
+                  "keypoints": null
+                },
+                {
+                  "id": 654144,
+                  "name": "间隔基期",
+                  "answerCount": 0,
+                  "questionCount": 20,
+                  "correctRatio": 0.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 96.0,
+                  "keypoints": null
+                },
+                {
+                  "id": 654146,
+                  "name": "基期和差",
+                  "answerCount": 1,
+                  "questionCount": 63,
+                  "correctRatio": 0.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 88.0,
+                  "keypoints": null
+                },
+                {
+                  "id": 654148,
+                  "name": "现期计算",
+                  "answerCount": 0,
+                  "questionCount": 55,
+                  "correctRatio": 0.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 86.0,
+                  "keypoints": null
+                },
+                {
+                  "id": 789477,
+                  "name": "基期比较",
+                  "answerCount": 0,
+                  "questionCount": 27,
+                  "correctRatio": 0.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 90.0,
+                  "keypoints": null
+                }
+              ]
+            },
+            {
+              "id": 654136,
+              "name": "增长率",
+              "answerCount": 3,
+              "questionCount": 530,
+              "correctRatio": 33.333333333333336,
+              "score": 0.0,
+              "targetCorrectRatio": 85.0,
+              "keypoints": [
+                {
+                  "id": 654152,
+                  "name": "一般增长率",
+                  "answerCount": 2,
+                  "questionCount": 435,
+                  "correctRatio": 50.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 87.0,
+                  "keypoints": null
+                },
+                {
+                  "id": 654154,
+                  "name": "混合增长率",
+                  "answerCount": 0,
+                  "questionCount": 44,
+                  "correctRatio": 0.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 89.0,
+                  "keypoints": null
+                },
+                {
+                  "id": 654156,
+                  "name": "间隔增长率",
+                  "answerCount": 1,
+                  "questionCount": 20,
+                  "correctRatio": 0.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 92.0,
+                  "keypoints": null
+                },
+                {
+                  "id": 654158,
+                  "name": "年均增长率",
+                  "answerCount": 0,
+                  "questionCount": 35,
+                  "correctRatio": 0.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 66.0,
+                  "keypoints": null
+                }
+              ]
+            },
+            {
+              "id": 654138,
+              "name": "增长量",
+              "answerCount": 1,
+              "questionCount": 354,
+              "correctRatio": 100.0,
+              "score": 0.0,
+              "targetCorrectRatio": 85.0,
+              "keypoints": [
+                {
+                  "id": 654160,
+                  "name": "增长量计算",
+                  "answerCount": 0,
+                  "questionCount": 190,
+                  "correctRatio": 0.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 87.0,
+                  "keypoints": null
+                },
+                {
+                  "id": 654162,
+                  "name": "增长量比较",
+                  "answerCount": 1,
+                  "questionCount": 123,
+                  "correctRatio": 100.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 81.0,
+                  "keypoints": null
+                },
+                {
+                  "id": 654164,
+                  "name": "间隔增长量",
+                  "answerCount": 0,
+                  "questionCount": 4,
+                  "correctRatio": 0.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 71.0,
+                  "keypoints": null
+                },
+                {
+                  "id": 654166,
+                  "name": "年均增长量",
+                  "answerCount": 0,
+                  "questionCount": 37,
+                  "correctRatio": 0.0,
+                  "score": 0.0,
+                  "targetCorrectRatio": 89.0,
+                  "keypoints": null
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "keypointAnalysis": {
+      "27137": {
+        "subject": null,
+        "teacher": {
+          "id": 285,
+          "userId": 38460763,
+          "name": "王鹏",
+          "brief": "粉笔常识公基优质讲师",
+          "desc": "粉笔常识公基优质讲师。\n法学硕士，17年一线教学经验，授课时长超过10000小时。\n粉笔常识判断和公共基础知识科目的教学教研奠基人\n对科目相关的法律、政治、经济、管理、公文、科技、人文、地理等学科均有深入研究，知识功底深厚，精准把握考情；\n曾研发大量的新课程，构建起完整科学的学科体系；\n曾组织主导多次教研会，推动教学教研持续升级；\n培养了大量的粉笔师资，一对一细心磨课，确保师资的教学质量；\n主编出版过多部公共基础知识与常识判断的相关著作。\n个人粉笔线上打分人数超过50万人次，打分在4.9以上，授课风格风趣幽默、重点突出、富有激情，被学员亲切的称为“行走的百科全书”。",
+          "avatar": "1945e89ced63089.jpg",
+          "upperBodyPhoto": null,
+          "displayCoursePrefix": null
+        },
+        "jumpType": 0
+      },
+      "27138": {
+        "subject": null,
+        "teacher": {
+          "id": 285,
+          "userId": 38460763,
+          "name": "王鹏",
+          "brief": "粉笔常识公基优质讲师",
+          "desc": "粉笔常识公基优质讲师。\n法学硕士，17年一线教学经验，授课时长超过10000小时。\n粉笔常识判断和公共基础知识科目的教学教研奠基人\n对科目相关的法律、政治、经济、管理、公文、科技、人文、地理等学科均有深入研究，知识功底深厚，精准把握考情；\n曾研发大量的新课程，构建起完整科学的学科体系；\n曾组织主导多次教研会，推动教学教研持续升级；\n培养了大量的粉笔师资，一对一细心磨课，确保师资的教学质量；\n主编出版过多部公共基础知识与常识判断的相关著作。\n个人粉笔线上打分人数超过50万人次，打分在4.9以上，授课风格风趣幽默、重点突出、富有激情，被学员亲切的称为“行走的百科全书”。",
+          "avatar": "1945e89ced63089.jpg",
+          "upperBodyPhoto": null,
+          "displayCoursePrefix": null
+        },
+        "jumpType": 0
+      },
+      "27139": {
+        "subject": null,
+        "teacher": {
+          "id": 285,
+          "userId": 38460763,
+          "name": "王鹏",
+          "brief": "粉笔常识公基优质讲师",
+          "desc": "粉笔常识公基优质讲师。\n法学硕士，17年一线教学经验，授课时长超过10000小时。\n粉笔常识判断和公共基础知识科目的教学教研奠基人\n对科目相关的法律、政治、经济、管理、公文、科技、人文、地理等学科均有深入研究，知识功底深厚，精准把握考情；\n曾研发大量的新课程，构建起完整科学的学科体系；\n曾组织主导多次教研会，推动教学教研持续升级；\n培养了大量的粉笔师资，一对一细心磨课，确保师资的教学质量；\n主编出版过多部公共基础知识与常识判断的相关著作。\n个人粉笔线上打分人数超过50万人次，打分在4.9以上，授课风格风趣幽默、重点突出、富有激情，被学员亲切的称为“行走的百科全书”。",
+          "avatar": "1945e89ced63089.jpg",
+          "upperBodyPhoto": null,
+          "displayCoursePrefix": null
+        },
+        "jumpType": 0
+      },
+      "27140": {
+        "subject": null,
+        "teacher": {
+          "id": 285,
+          "userId": 38460763,
+          "name": "王鹏",
+          "brief": "粉笔常识公基优质讲师",
+          "desc": "粉笔常识公基优质讲师。\n法学硕士，17年一线教学经验，授课时长超过10000小时。\n粉笔常识判断和公共基础知识科目的教学教研奠基人\n对科目相关的法律、政治、经济、管理、公文、科技、人文、地理等学科均有深入研究，知识功底深厚，精准把握考情；\n曾研发大量的新课程，构建起完整科学的学科体系；\n曾组织主导多次教研会，推动教学教研持续升级；\n培养了大量的粉笔师资，一对一细心磨课，确保师资的教学质量；\n主编出版过多部公共基础知识与常识判断的相关著作。\n个人粉笔线上打分人数超过50万人次，打分在4.9以上，授课风格风趣幽默、重点突出、富有激情，被学员亲切的称为“行走的百科全书”。",
+          "avatar": "1945e89ced63089.jpg",
+          "upperBodyPhoto": null,
+          "displayCoursePrefix": null
+        },
+        "jumpType": 0
+      },
+      "27141": {
+        "subject": null,
+        "teacher": {
+          "id": 285,
+          "userId": 38460763,
+          "name": "王鹏",
+          "brief": "粉笔常识公基优质讲师",
+          "desc": "粉笔常识公基优质讲师。\n法学硕士，17年一线教学经验，授课时长超过10000小时。\n粉笔常识判断和公共基础知识科目的教学教研奠基人\n对科目相关的法律、政治、经济、管理、公文、科技、人文、地理等学科均有深入研究，知识功底深厚，精准把握考情；\n曾研发大量的新课程，构建起完整科学的学科体系；\n曾组织主导多次教研会，推动教学教研持续升级；\n培养了大量的粉笔师资，一对一细心磨课，确保师资的教学质量；\n主编出版过多部公共基础知识与常识判断的相关著作。\n个人粉笔线上打分人数超过50万人次，打分在4.9以上，授课风格风趣幽默、重点突出、富有激情，被学员亲切的称为“行走的百科全书”。",
+          "avatar": "1945e89ced63089.jpg",
+          "upperBodyPhoto": null,
+          "displayCoursePrefix": null
+        },
+        "jumpType": 0
+      },
+      "832962": {
+        "subject": null,
+        "teacher": {
+          "id": 285,
+          "userId": 38460763,
+          "name": "王鹏",
+          "brief": "粉笔常识公基优质讲师",
+          "desc": "粉笔常识公基优质讲师。\n法学硕士，17年一线教学经验，授课时长超过10000小时。\n粉笔常识判断和公共基础知识科目的教学教研奠基人\n对科目相关的法律、政治、经济、管理、公文、科技、人文、地理等学科均有深入研究，知识功底深厚，精准把握考情；\n曾研发大量的新课程，构建起完整科学的学科体系；\n曾组织主导多次教研会，推动教学教研持续升级；\n培养了大量的粉笔师资，一对一细心磨课，确保师资的教学质量；\n主编出版过多部公共基础知识与常识判断的相关著作。\n个人粉笔线上打分人数超过50万人次，打分在4.9以上，授课风格风趣幽默、重点突出、富有激情，被学员亲切的称为“行走的百科全书”。",
+          "avatar": "1945e89ced63089.jpg",
+          "upperBodyPhoto": null,
+          "displayCoursePrefix": null
+        },
+        "jumpType": 0
+      }
+    },
+    "userCouponReceive": null
+  }
+}

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cookie 设置</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='3' fill='%232f7cf6'/%3E%3Cpath d='M4 8.4 6.7 11 12 5' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/static/css/admin.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <div>
+        <h1>Cookie 设置</h1>
+        <div class="muted">更新粉笔接口请求使用的登录 Cookie</div>
+      </div>
+      <a href="/report.html">返回报告</a>
+    </header>
+
+    <section class="card">
+      <div class="status-grid" id="statusGrid">
+        <div class="status-item">
+          <div class="label">Cookie</div>
+          <div class="value">读取中</div>
+        </div>
+        <div class="status-item">
+          <div class="label">来源</div>
+          <div class="value">读取中</div>
+        </div>
+        <div class="status-item">
+          <div class="label">最近状态</div>
+          <div class="value">读取中</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="label">新 Cookie</div>
+      <textarea id="cookieInput" placeholder="粘贴完整 Cookie，例如 userid=...; sess=...; persistent=..."></textarea>
+      <div class="actions">
+        <button type="button" id="saveButton">验证并更新</button>
+        <span class="muted">Cookie 会写入本地 data/fenbi_cookie.txt；生产环境也可以使用 FENBI_COOKIE 环境变量。</span>
+      </div>
+      <div id="message" class="message" hidden></div>
+    </section>
+  </main>
+  <script src="/static/js/admin.js" defer></script>
+</body>
+</html>
