@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>报告</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='3' fill='%232f7cf6'/%3E%3Cpath d='M4 8.4 6.7 11 12 5' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script>
+  <link rel="stylesheet" href="/static/css/report.css">
+</head>
+<body>
+  <div class="shell">
+    <div class="page-head">
+      <header class="topbar">
+        <div>
+          <h1>报告</h1>
+          <div class="subtitle" id="reportSubtitle">正在读取报告数据</div>
+        </div>
+        <div class="header-actions">
+          <div class="source-note" id="sourceNote">数据源：实时接口响应</div>
+          <button type="button" class="refresh-action" id="refreshButton">手动更新</button>
+        </div>
+      </header>
+
+      <nav class="nav" aria-label="报告导航">
+        <button type="button" data-panel="overview" aria-selected="true">用户报告</button>
+        <button type="button" data-panel="history" aria-selected="false">练习历史</button>
+        <button type="button" data-panel="errors" aria-selected="false">我的错题</button>
+        <a class="nav-link" href="/admin.html">Cookie 设置</a>
+      </nav>
+    </div>
+
+    <main id="app">
+      <div class="empty">正在加载 live JSON 数据</div>
+    </main>
+  </div>
+  <script src="/static/js/report.js" defer></script>
+</body>
+</html>
