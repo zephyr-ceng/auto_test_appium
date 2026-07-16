@@ -52,7 +52,7 @@ AI_PROVIDERS = {
     },
     "qwen": {
         "name": "通义千问",
-        "base_url": os.getenv("QWEN_BASE_URL", "https://dashscope.aliyuncs.com/compatible-mode/v1").rstrip("/"),
+        "base_url": os.getenv("QWEN_BASE_URL", "https://ws-l9txxb2g2w5lddbn.cn-beijing.maas.aliyuncs.com/compatible-mode/v1").rstrip("/"),
         "model": os.getenv("QWEN_MODEL", "qwen-plus"),
         "api_key_env": "DASHSCOPE_API_KEY",
         "fallback_api_key": "",
