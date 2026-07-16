@@ -12,7 +12,7 @@
     <header class="topbar">
       <div>
         <h1>Cookie 设置</h1>
-        <div class="muted">更新粉笔接口请求使用的登录 Cookie</div>
+        <div class="muted">更新粉笔接口请求使用的登录 Cookie，并选择 AI 分析服务商</div>
       </div>
       <a href="/report.html">返回报告</a>
     </header>
@@ -32,6 +32,15 @@
           <div class="value">读取中</div>
         </div>
       </div>
+    </section>
+
+    <section class="card">
+      <div class="label">AI 服务商</div>
+      <div class="provider-row">
+        <select id="aiProviderSelect"></select>
+        <button type="button" id="saveProviderButton">保存服务商</button>
+      </div>
+      <div class="muted" id="providerHint">正在读取可用服务商</div>
     </section>
 
     <section class="card">

@@ -348,6 +348,104 @@ const app = document.getElementById('app');
       `).join('') : '<div class="empty">当前筛选下没有练习记录</div>';
     }
 
+    function analysisPanel(historyItems = [], errorTree = []) {
+      const provider = localStorage.getItem('aiProvider') || 'openai';
+      const scope = analysisScope(historyItems, errorTree);
+      return `
+        <section class="panel" id="panel-analysis">
+          <div class="section-head">
+            <h2>AI 分析</h2>
+            <span class="muted">服务商：${escapeHtml(provider)}</span>
+          </div>
+          <div class="ai-analysis surface">
+            <div class="ai-toolbar">
+              <button type="button" id="startAnalysisButton" class="refresh-action">开始分析当前错题</button>
+              <a href="/admin.html" class="secondary-action">切换 AI 服务商</a>
+            </div>
+            <div id="analysisStatus" class="analysis-status">${analysisStatusText('ready', provider, scope)}</div>
+            <pre id="analysisOutput" class="analysis-output">等待分析</pre>
+          </div>
+        </section>
+      `;
+    }
+
+    function historyBlock(historyItems) {
+      const recent = recentHistoryItems(historyItems);
+      const finished = recent.filter(item => item.status === 1);
+      const totalQuestions = finished.reduce((sum, item) => sum + (item.questionCount || 0), 0);
+      const totalCorrect = finished.reduce((sum, item) => sum + (item.correctCount || 0), 0);
+      return `
+        <div class="section-head history-section-head">
+          <h2>最近 10 次练习历史</h2>
+          <span class="muted">共 ${historyItems.length} 条，仅展示最近 10 条</span>
+        </div>
+        <div class="stats compact-stats">
+          <div class="stat">
+            <div class="stat-label">展示记录</div>
+            <div class="stat-value">${recent.length}</div>
+            <div class="stat-context">最近练习</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">已完成练习</div>
+            <div class="stat-value">${finished.length}</div>
+            <div class="stat-context">最近 10 次内</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">完成题量</div>
+            <div class="stat-value">${totalQuestions}</div>
+            <div class="stat-context">最近完成记录</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">列表正确率</div>
+            <div class="stat-value">${percent(totalQuestions ? totalCorrect / totalQuestions * 100 : 0)}</div>
+            <div class="stat-context">${totalCorrect} / ${totalQuestions} 题</div>
+          </div>
+        </div>
+        <div class="controls">
+          <label for="historyFilter" class="muted">状态</label>
+          <select id="historyFilter">
+            <option value="all">全部</option>
+            <option value="finished">已完成</option>
+            <option value="pending">继续做题</option>
+          </select>
+        </div>
+        <div class="history-list" id="historyList"></div>
+      `;
+    }
+
+    function recentHistoryItems(historyItems) {
+      return [...historyItems]
+        .sort((a, b) => Number(b.updatedTime || 0) - Number(a.updatedTime || 0))
+        .slice(0, 10);
+    }
+
+    function renderHistoryList(historyItems, filter = 'all') {
+      const list = document.getElementById('historyList');
+      if (!list) return;
+      const items = recentHistoryItems(historyItems).filter(item => {
+        if (filter === 'finished') return item.status === 1;
+        if (filter === 'pending') return item.status !== 1;
+        return true;
+      });
+      list.innerHTML = items.length ? items.map(item => `
+        <article class="history-item">
+          <div>
+            <div class="history-title">${escapeHtml(item.sheetName || '--')}</div>
+            <div class="history-meta">
+              <span>难度 ${fmtScore.format(item.difficulty || 0)}</span>
+              <span>${formatDate(item.updatedTime)}</span>
+              <span>题量 ${item.questionCount || 0}</span>
+            </div>
+          </div>
+          <div>
+            ${item.status === 1
+              ? `<span class="score-pill">共 ${item.questionCount || 0} 题，答对 <strong>${item.correctCount || 0}</strong> 题</span>`
+              : '<span class="status-pill">继续做题</span>'}
+          </div>
+        </article>
+      `).join('') : '<div class="empty">当前筛选下没有练习记录</div>';
+    }
+
     function countQuestions(node) {
       if (!node || typeof node !== 'object') return 0;
       const own = Array.isArray(node.questionIds) ? node.questionIds.length : 0;
@@ -359,6 +457,50 @@ const app = document.getElementById('app');
       if (!node || typeof node !== 'object') return 0;
       const children = Array.isArray(node.children) ? node.children : [];
       return children.reduce((sum, child) => sum + 1 + countChildNodes(child), 0);
+    }
+
+    function analysisScope(historyItems = [], errorTree = []) {
+      const tree = Array.isArray(errorTree) ? errorTree : [];
+      const histories = Array.isArray(historyItems) ? historyItems : [];
+      const finished = histories.filter(item => item.status === 1);
+      const wrongQuestions = tree.reduce((sum, item) => sum + countQuestions(item), 0);
+      const knowledgePoints = tree.reduce((sum, item) => sum + 1 + countChildNodes(item), 0);
+      const practicedQuestions = finished.reduce((sum, item) => sum + (Number(item.questionCount) || 0), 0);
+      return {
+        wrongQuestions,
+        modules: tree.length,
+        knowledgePoints,
+        finishedPractices: finished.length,
+        practicedQuestions
+      };
+    }
+
+    function analysisScopeSummary(scope) {
+      const parts = [
+        `${fmtNumber.format(scope.wrongQuestions)} 道错题`,
+        `${fmtNumber.format(scope.modules)} 个一级模块`,
+        `${fmtNumber.format(scope.knowledgePoints)} 个知识点`
+      ];
+      if (scope.finishedPractices) {
+        parts.push(`近 ${fmtNumber.format(scope.finishedPractices)} 次已完成练习共 ${fmtNumber.format(scope.practicedQuestions)} 题`);
+      }
+      return parts.join('，');
+    }
+
+    function analysisStatusText(state, provider, scope, progress = {}) {
+      const summary = analysisScopeSummary(scope);
+      if (state === 'running') {
+        const receivedText = progress.receivedChars ? `，已收到 ${fmtNumber.format(progress.receivedChars)} 字分析内容` : '';
+        return `分析中：正在调用 ${provider}，本次会结合 ${summary}${receivedText}。`;
+      }
+      if (state === 'done') {
+        const receivedText = progress.receivedChars ? `，生成 ${fmtNumber.format(progress.receivedChars)} 字结果` : '';
+        return `分析完成：已完成 ${summary} 的 AI 诊断${receivedText}。`;
+      }
+      if (state === 'error') {
+        return `分析失败：已准备 ${summary}，请检查 AI 服务商配置或后端日志后重试。`;
+      }
+      return `开始状态：已准备 ${summary}。点击开始后将调用 ${provider} 并流式返回结果。`;
     }
 
     function childKeypoints(node) {
@@ -412,25 +554,27 @@ const app = document.getElementById('app');
     function renderMasteryChild(item, errorsByName, depth = 0) {
       const children = childKeypoints(item);
       const errorTotal = countQuestions(errorsByName.get(item.name));
-      const row = `
-        <div class="mastery-child" style="margin-left:${Math.min(depth, 3) * 14}px">
-          <div>
-            <div class="mastery-title"><span class="mastery-name">${escapeHtml(item.name)}</span></div>
-            <div class="mastery-meta">题库 ${fmtNumber.format(item.questionCount || 0)} 题 · 已做 ${fmtNumber.format(item.answerCount || 0)} 题</div>
-          </div>
-          ${masteryProgress(item)}
-          <div class="mastery-count">${fmtNumber.format(errorTotal)} 错题</div>
-        </div>
+      const hasChildren = children.length > 0;
+      return `
+        <details class="mastery-child-detail" style="margin-left:${Math.min(depth, 3) * 14}px">
+          <summary class="mastery-child">
+            <div>
+              <div class="mastery-title">${hasChildren ? '<span class="toggle-mark"></span>' : '<span class="toggle-spacer"></span>'}<span class="mastery-name">${escapeHtml(item.name)}</span></div>
+              <div class="mastery-meta">题库 ${fmtNumber.format(item.questionCount || 0)} 题 · 已做 ${fmtNumber.format(item.answerCount || 0)} 题</div>
+            </div>
+            ${masteryProgress(item)}
+            <div class="mastery-count">${fmtNumber.format(errorTotal)} 错题</div>
+          </summary>
+          ${hasChildren ? `<div class="mastery-grandchildren">${children.map(child => renderMasteryChild(child, errorsByName, depth + 1)).join('')}</div>` : ''}
+        </details>
       `;
-      if (!children.length) return row;
-      return `${row}${children.map(child => renderMasteryChild(child, errorsByName, depth + 1)).join('')}`;
     }
 
-    function renderMasteryDetail(item, errorsByName, index) {
+    function renderMasteryDetail(item, errorsByName) {
       const errorTotal = countQuestions(errorsByName.get(item.name));
       const children = childKeypoints(item);
       return `
-        <details class="mastery-detail" ${index === 0 ? 'open' : ''}>
+        <details class="mastery-detail">
           <summary>
             <div>
               <div class="mastery-title"><span class="toggle-mark"></span><span class="mastery-name">${escapeHtml(item.name)}</span></div>
@@ -446,7 +590,7 @@ const app = document.getElementById('app');
       `;
     }
 
-    function errorsPanel(errorTree, report) {
+    function errorsPanel(errorTree, report, historyItems = []) {
       const total = errorTree.reduce((sum, item) => sum + countQuestions(item), 0);
       const errorsByName = errorNodeByName(errorTree);
       const keypoints = report.keypoints || [];
@@ -460,7 +604,7 @@ const app = document.getElementById('app');
             </div>
             <div class="stat">
               <div class="stat-label">错题总量</div>
-              <div class="stat-value">${total}</div>
+              <div class="stat-value">${fmtNumber.format(total)}</div>
               <div class="stat-context">含子知识点聚合</div>
             </div>
             <div class="stat">
@@ -474,12 +618,13 @@ const app = document.getElementById('app');
               <div class="stat-context">来自接口响应</div>
             </div>
           </div>
+          ${historyBlock(historyItems)}
           <div class="section-head">
             <h2>知识点掌握</h2>
-            <span class="muted">一级题型含目标线，下级知识点仅展示正确率</span>
+            <span class="muted">一级题型含目标线，展开后展示二级知识点正确率</span>
           </div>
           <div class="mastery-tree">
-            ${keypoints.length ? keypoints.map((item, index) => renderMasteryDetail(item, errorsByName, index)).join('') : '<div class="empty">暂无知识点数据</div>'}
+            ${keypoints.length ? keypoints.map(item => renderMasteryDetail(item, errorsByName)).join('') : '<div class="empty">暂无知识点数据</div>'}
           </div>
         </section>
       `;
@@ -754,6 +899,7 @@ const app = document.getElementById('app');
       mountRadarHover(report);
     }
 
+
     function activatePanel(panelName) {
       document.querySelectorAll('.nav button[data-panel]').forEach(button => {
         button.setAttribute('aria-selected', String(button.dataset.panel === panelName));
@@ -764,15 +910,60 @@ const app = document.getElementById('app');
       requestAnimationFrame(() => charts.forEach(chart => chart.resize()));
     }
 
+    function extractAnalysisChunk(raw) {
+      if (!raw || raw === '[DONE]') return '';
+      try {
+        const payload = JSON.parse(raw);
+        return payload.content || payload.choices?.[0]?.delta?.content || payload.choices?.[0]?.message?.content || '';
+      } catch {
+        return raw;
+      }
+    }
+
+    function startAiAnalysis(historyItems = [], errorTree = []) {
+      const button = document.getElementById('startAnalysisButton');
+      const status = document.getElementById('analysisStatus');
+      const output = document.getElementById('analysisOutput');
+      if (!button || !status || !output) return;
+
+      const provider = localStorage.getItem('aiProvider') || 'openai';
+      const scope = analysisScope(historyItems, errorTree);
+      let receivedChars = 0;
+      button.disabled = true;
+      status.textContent = analysisStatusText('running', provider, scope);
+      output.textContent = '';
+
+      const source = new EventSource(`/api/analysis/stream?provider=${encodeURIComponent(provider)}`);
+      source.onmessage = event => {
+        if (event.data === '[DONE]') {
+          source.close();
+          button.disabled = false;
+          status.textContent = analysisStatusText('done', provider, scope, { receivedChars });
+          return;
+        }
+        const chunk = extractAnalysisChunk(event.data);
+        output.textContent += chunk;
+        receivedChars += chunk.length;
+        status.textContent = analysisStatusText('running', provider, scope, { receivedChars });
+        output.scrollTop = output.scrollHeight;
+      };
+      source.onerror = () => {
+        source.close();
+        button.disabled = false;
+        status.textContent = analysisStatusText('error', provider, scope);
+      };
+    }
+
     function wireInteractions(historyItems, errorTree) {
       document.querySelectorAll('.nav button[data-panel]').forEach(button => {
         button.addEventListener('click', () => activatePanel(button.dataset.panel));
       });
 
       const filter = document.getElementById('historyFilter');
-      filter.addEventListener('change', () => renderHistoryList(historyItems, filter.value));
+      filter?.addEventListener('change', () => renderHistoryList(historyItems, filter.value));
       renderHistoryList(historyItems);
 
+      document.getElementById('startAnalysisButton')?.addEventListener('click', () => startAiAnalysis(historyItems, errorTree));
     }
 
     refreshButton.addEventListener('click', refreshReport);
@@ -788,8 +979,8 @@ const app = document.getElementById('app');
         sourceNote.textContent = `${apiReport.meta?.stale ? '缓存数据' : '动态数据'} · 更新：${new Date(apiReport.meta?.fetched_at || Date.now()).toLocaleString('zh-CN', { hour12: false })}`;
         app.innerHTML = [
           overviewPanel(report),
-          historyPanel(historyItems),
-          errorsPanel(errorTree, report)
+          analysisPanel(historyItems, errorTree),
+          errorsPanel(errorTree, report, historyItems)
         ].join('');
         wireInteractions(historyItems, errorTree);
         initCharts(report);

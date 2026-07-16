@@ -34,3 +34,27 @@ MANUAL_REFRESH_LIMIT_PER_HOUR = int(os.getenv("MANUAL_REFRESH_LIMIT_PER_HOUR", "
 AI_API_KEY = os.getenv("AI_API_KEY", "").strip()
 AI_BASE_URL = os.getenv("AI_BASE_URL", "https://api.openai.com/v1").rstrip("/")
 AI_MODEL = os.getenv("AI_MODEL", "gpt-4.1-mini")
+
+AI_PROVIDERS = {
+    "openai": {
+        "name": "OpenAI",
+        "base_url": os.getenv("OPENAI_BASE_URL", AI_BASE_URL).rstrip("/"),
+        "model": os.getenv("OPENAI_MODEL", AI_MODEL),
+        "api_key_env": "OPENAI_API_KEY",
+        "fallback_api_key": AI_API_KEY,
+    },
+    "deepseek": {
+        "name": "DeepSeek",
+        "base_url": os.getenv("DEEPSEEK_BASE_URL", "https://api.deepseek.com").rstrip("/"),
+        "model": os.getenv("DEEPSEEK_MODEL", "deepseek-chat"),
+        "api_key_env": "DEEPSEEK_API_KEY",
+        "fallback_api_key": "",
+    },
+    "qwen": {
+        "name": "通义千问",
+        "base_url": os.getenv("QWEN_BASE_URL", "https://dashscope.aliyuncs.com/compatible-mode/v1").rstrip("/"),
+        "model": os.getenv("QWEN_MODEL", "qwen-plus"),
+        "api_key_env": "DASHSCOPE_API_KEY",
+        "fallback_api_key": "",
+    },
+}
