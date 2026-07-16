@@ -95,6 +95,25 @@
       font: inherit;
     }
 
+    select {
+      min-width: 260px;
+      height: 42px;
+      padding: 0 10px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--surface);
+      color: var(--text);
+      font: inherit;
+    }
+
+    .provider-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
     button {
       border: 0;
       border-radius: 6px;

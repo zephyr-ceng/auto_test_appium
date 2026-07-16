@@ -6,7 +6,7 @@
   <title>报告</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='3' fill='%232f7cf6'/%3E%3Cpath d='M4 8.4 6.7 11 12 5' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
   <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script>
-  <link rel="stylesheet" href="/static/css/report.css">
+  <link rel="stylesheet" href="/static/css/report.css?v=ai-analysis-ui-2">
 </head>
 <body>
   <div class="shell">
@@ -24,7 +24,7 @@
 
       <nav class="nav" aria-label="报告导航">
         <button type="button" data-panel="overview" aria-selected="true">用户报告</button>
-        <button type="button" data-panel="history" aria-selected="false">练习历史</button>
+        <button type="button" data-panel="analysis" aria-selected="false">AI 分析</button>
         <button type="button" data-panel="errors" aria-selected="false">我的错题</button>
         <a class="nav-link" href="/admin.html">Cookie 设置</a>
       </nav>
@@ -34,6 +34,6 @@
       <div class="empty">正在加载 live JSON 数据</div>
     </main>
   </div>
-  <script src="/static/js/report.js" defer></script>
+  <script src="/static/js/report.js?v=ai-analysis-ui-2" defer></script>
 </body>
 </html>
