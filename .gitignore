@@ -4,6 +4,9 @@
 output/
 __pycache__/
 *.py[cod]
+.env
+.env.*
+!.env.example
 
 # Runtime files. Keep data/live_*.json as committed cache fixtures.
 data/fenbi_cookie.txt

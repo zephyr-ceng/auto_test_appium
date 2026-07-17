@@ -1,6 +1,7 @@
 import json
 import os
 from collections.abc import AsyncIterator
+from collections.abc import Iterator
 from typing import Any
 
 import requests
@@ -82,7 +83,7 @@ async def _stream_chat_completions(
             timeout=60,
         ) as response:
             response.raise_for_status()
-            for line in response.iter_lines(decode_unicode=True):
+            for line in _iter_utf8_lines(response):
                 if line:
                     yield f"{line}\n\n"
     except requests.RequestException as exc:
@@ -119,7 +120,7 @@ async def _stream_responses(
             timeout=60,
         ) as response:
             response.raise_for_status()
-            for line in response.iter_lines(decode_unicode=True):
+            for line in _iter_utf8_lines(response):
                 if not line:
                     continue
                 if not line.startswith("data: "):
@@ -133,6 +134,14 @@ async def _stream_responses(
                     yield _sse_data({"content": content, "provider": provider})
     except requests.RequestException as exc:
         raise FenbiError("AI 服务调用失败。", 502, {"provider": provider, "wire_api": "responses", "error": str(exc)}) from exc
+
+
+def _iter_utf8_lines(response: requests.Response) -> Iterator[str]:
+    for line in response.iter_lines(decode_unicode=False):
+        if isinstance(line, bytes):
+            yield line.decode("utf-8", errors="replace")
+        else:
+            yield line
 
 
 def _extract_responses_text(raw: str) -> str:
@@ -203,6 +212,7 @@ def _build_analysis_prompt(report: dict[str, Any]) -> str:
     }
     return (
         "请分析以下行测学习数据，重点围绕当前错题给出结论。\n"
+        "请直接使用 Markdown 正文输出，包含二级标题、项目列表和必要的加粗重点；不要把全文包在 ```markdown 代码块中。\n"
         "输出结构：1. 当前主要薄弱点；2. 错因推测；3. 未来 7 天复习安排；4. 刷题优先级。\n"
         f"{json.dumps(compact, ensure_ascii=False)}"
     )
@@ -260,9 +270,16 @@ def _local_summary(report: dict[str, Any], provider_name: str) -> str:
     summary = report.get("summary", {})
     errors = report.get("errors", [])
     top_errors = _top_error_nodes(errors)[:5]
-    error_text = "、".join(f"{item['name']}（{item['wrongCount']}题）" for item in top_errors) or "暂无错题节点"
+    error_items = "\n".join(f"- **{item['name']}**：{item['wrongCount']} 题" for item in top_errors) or "- 暂无错题节点"
     return (
-        f"{provider_name} 未配置 API Key，当前返回本地摘要。"
-        f"预测分 {summary.get('forecastScore', '--')}，累计练习 {summary.get('exerciseCount', '--')} 套。"
-        f"错题集中在：{error_text}。建议先按错题数量从高到低复盘，再补做对应知识点。"
+        "## 本地摘要\n\n"
+        f"{provider_name} 未配置 API Key，当前返回本地摘要。\n\n"
+        "## 当前概况\n\n"
+        f"- 预测分：**{summary.get('forecastScore', '--')}**\n"
+        f"- 累计练习：**{summary.get('exerciseCount', '--')}** 套\n\n"
+        "## 错题集中点\n\n"
+        f"{error_items}\n\n"
+        "## 建议\n\n"
+        "- 先按错题数量从高到低复盘。\n"
+        "- 再补做对应知识点，优先处理高频错误节点。"
     )

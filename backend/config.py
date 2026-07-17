@@ -4,6 +4,27 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent
 PROJECT_ROOT = BASE_DIR.parent
+
+
+def load_local_env() -> None:
+    env_file = PROJECT_ROOT / ".env.local"
+    if not env_file.exists():
+        return
+
+    for raw_line in env_file.read_text(encoding="utf-8").splitlines():
+        line = raw_line.strip()
+        if not line or line.startswith("#") or "=" not in line:
+            continue
+
+        name, value = line.split("=", 1)
+        name = name.strip()
+        value = value.strip().strip('"').strip("'")
+        if name and name not in os.environ:
+            os.environ[name] = value
+
+
+load_local_env()
+
 DATA_DIR = Path(os.getenv("FENBI_DATA_DIR", PROJECT_ROOT / "data"))
 FRONTEND_DIR = Path(os.getenv("FENBI_FRONTEND_DIR", PROJECT_ROOT / "frontend"))
 PAGES_DIR = Path(os.getenv("FENBI_PAGES_DIR", FRONTEND_DIR / "pages"))

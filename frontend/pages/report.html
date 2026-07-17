@@ -6,7 +6,8 @@
   <title>报告</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='3' fill='%232f7cf6'/%3E%3Cpath d='M4 8.4 6.7 11 12 5' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
   <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script>
-  <link rel="stylesheet" href="/static/css/report.css?v=ai-analysis-ui-2">
+  <script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+  <link rel="stylesheet" href="/static/css/report.css?v=main-grid-1">
 </head>
 <body>
   <div class="shell">
@@ -22,18 +23,75 @@
         </div>
       </header>
 
-      <nav class="nav" aria-label="报告导航">
-        <button type="button" data-panel="overview" aria-selected="true">用户报告</button>
-        <button type="button" data-panel="analysis" aria-selected="false">AI 分析</button>
-        <button type="button" data-panel="errors" aria-selected="false">我的错题</button>
-        <a class="nav-link" href="/admin.html">Cookie 设置</a>
-      </nav>
     </div>
 
-    <main id="app">
-      <div class="empty">正在加载 live JSON 数据</div>
-    </main>
+    <div class="workspace-layout">
+      <aside class="sidebar" aria-label="功能目录">
+        <nav class="nav" aria-label="报告导航">
+          <button type="button" data-panel="overview" aria-selected="true">我的报告</button>
+          <button type="button" data-panel="analysis" aria-selected="false">AI 分析</button>
+          <button type="button" data-panel="errors" aria-selected="false">我的错题</button>
+        </nav>
+        <button type="button" class="settings-action" id="settingsButton" aria-label="打开设置" title="设置">&#9881;</button>
+      </aside>
+
+      <main id="app" class="content-area">
+        <div class="empty">正在加载 live JSON 数据</div>
+      </main>
+    </div>
   </div>
-  <script src="/static/js/report.js?v=ai-analysis-ui-2" defer></script>
+
+  <div class="settings-modal" id="settingsModal" hidden>
+    <div class="settings-backdrop" data-close-settings></div>
+    <section class="settings-dialog" role="dialog" aria-modal="true" aria-labelledby="settingsTitle">
+      <header class="settings-head">
+        <div>
+          <h2 id="settingsTitle">Cookie 设置</h2>
+          <div class="muted">更新接口 Cookie，并选择 AI 分析服务商</div>
+        </div>
+        <button type="button" class="icon-action" id="settingsCloseButton" aria-label="关闭设置">&times;</button>
+      </header>
+
+      <div class="settings-body">
+        <section class="settings-card">
+          <div class="settings-status-grid" id="settingsStatusGrid">
+            <div class="settings-status-item">
+              <div class="label">Cookie</div>
+              <div class="value">读取中</div>
+            </div>
+            <div class="settings-status-item">
+              <div class="label">来源</div>
+              <div class="value">读取中</div>
+            </div>
+            <div class="settings-status-item">
+              <div class="label">最近状态</div>
+              <div class="value">读取中</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="settings-card">
+          <div class="label">AI 服务商</div>
+          <div class="provider-row">
+            <select id="settingsProviderSelect"></select>
+            <button type="button" id="settingsSaveProviderButton" class="refresh-action">保存服务商</button>
+          </div>
+          <div class="muted" id="settingsProviderHint">正在读取可用服务商</div>
+        </section>
+
+        <section class="settings-card">
+          <div class="label">新 Cookie</div>
+          <textarea id="settingsCookieInput" placeholder="粘贴完整 Cookie，例如 userid=...; sess=...; persistent=..."></textarea>
+          <div class="settings-actions">
+            <button type="button" id="settingsSaveCookieButton" class="refresh-action">验证并更新</button>
+            <span class="muted">Cookie 会写入本地配置；生产环境也可以使用 FENBI_COOKIE 环境变量。</span>
+          </div>
+          <div id="settingsMessage" class="settings-message" hidden></div>
+        </section>
+      </div>
+    </section>
+  </div>
+
+  <script src="/static/js/report.js?v=main-grid-1" defer></script>
 </body>
 </html>
