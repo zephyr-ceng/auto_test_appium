@@ -16,7 +16,7 @@ async def analysis_stream(request: Request, provider: str = AI_DEFAULT_PROVIDER)
         report_data = fetch_report()
     except FenbiError as exc:
         raise HTTPException(status_code=exc.status_code, detail={"message": str(exc), "details": exc.details}) from exc
-    return StreamingResponse(stream_report_analysis(report_data, provider), media_type="text/event-stream")
+    return StreamingResponse(stream_report_analysis(report_data, provider), media_type="text/event-stream; charset=utf-8")
 
 
 @router.get("/analysis/providers")

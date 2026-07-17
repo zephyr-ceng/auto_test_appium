@@ -4,24 +4,24 @@
   "data": {
     "tikuReport": {
       "userId": 88996385,
-      "answerCount": 989,
-      "exerciseCount": 66,
-      "correctCount": 557,
-      "forecastScore": 50.92735181952075,
-      "avgForecastScore": 48.18688754912945,
+      "answerCount": 1049,
+      "exerciseCount": 70,
+      "correctCount": 586,
+      "forecastScore": 50.833581036824654,
+      "avgForecastScore": 48.18649936005666,
       "maxForecastScore": 98.0,
-      "exerciseDay": 36,
+      "exerciseDay": 37,
       "userQuiz": {
         "id": 53,
         "name": "四川省考",
         "quizFullMark": 100,
         "quizDesc": null
       },
-      "totalUserCount": 975752,
-      "scoreRankIndex": 390708,
+      "totalUserCount": 976966,
+      "scoreRankIndex": 391133,
       "fullMark": 100,
-      "maxAnswerCount": 171257,
-      "answerCountRankIndex": 274641,
+      "maxAnswerCount": 171408,
+      "answerCountRankIndex": 266717,
       "trends": [
         {
           "time": 1774252712091,
@@ -171,6 +171,26 @@
         {
           "time": 1783958606652,
           "score": 50.92735181952075,
+          "type": 3
+        },
+        {
+          "time": 1784132430715,
+          "score": 50.922049595528975,
+          "type": 3
+        },
+        {
+          "time": 1784133939722,
+          "score": 50.796413084006595,
+          "type": 3
+        },
+        {
+          "time": 1784135341126,
+          "score": 50.83357305955328,
+          "type": 3
+        },
+        {
+          "time": 1784213172804,
+          "score": 50.833581036824654,
           "type": 3
         }
       ],
@@ -813,97 +833,97 @@
         {
           "id": 27137,
           "name": "言语理解与表达",
-          "answerCount": 703,
+          "answerCount": 763,
           "questionCount": 6949,
-          "correctRatio": 56.6145092460882,
-          "score": 0.48066879282144664,
+          "correctRatio": 55.96330275229358,
+          "score": 0.4776362788508375,
           "targetCorrectRatio": 82.0,
           "keypoints": [
             {
               "id": 27154,
               "name": "逻辑填空",
-              "answerCount": 212,
+              "answerCount": 228,
               "questionCount": 3023,
-              "correctRatio": 53.301886792452834,
-              "score": 0.46223935538544886,
+              "correctRatio": 53.50877192982456,
+              "score": 0.4672514072748486,
               "targetCorrectRatio": 95.0,
               "keypoints": [
                 {
                   "id": 27477,
                   "name": "实词填空",
-                  "answerCount": 58,
+                  "answerCount": 65,
                   "questionCount": 1131,
-                  "correctRatio": 53.44827586206897,
-                  "score": 0.4649569377609161,
+                  "correctRatio": 55.38461538461539,
+                  "score": 0.4870296298282485,
                   "targetCorrectRatio": 80.0,
                   "keypoints": null
                 },
                 {
                   "id": 27481,
                   "name": "成语填空",
-                  "answerCount": 60,
+                  "answerCount": 66,
                   "questionCount": 841,
-                  "correctRatio": 55.0,
-                  "score": 0.46242103454123046,
+                  "correctRatio": 54.54545454545455,
+                  "score": 0.4659837178987316,
                   "targetCorrectRatio": 80.0,
                   "keypoints": null
                 },
                 {
                   "id": 27483,
                   "name": "混搭填空",
-                  "answerCount": 92,
+                  "answerCount": 95,
                   "questionCount": 998,
-                  "correctRatio": 52.17391304347826,
-                  "score": 0.46268798438593967,
+                  "correctRatio": 51.578947368421055,
+                  "score": 0.45706280371472474,
                   "targetCorrectRatio": 80.0,
                   "keypoints": null
                 },
                 {
                   "id": 764021,
                   "name": "词的辨析",
-                  "answerCount": 122,
+                  "answerCount": 129,
                   "questionCount": 1872,
-                  "correctRatio": 51.63934426229508,
-                  "score": 0.4515857871529362,
+                  "correctRatio": 51.16279069767442,
+                  "score": 0.44672543925257235,
                   "targetCorrectRatio": 80.0,
                   "keypoints": [
                     {
                       "id": 775852,
                       "name": "词的辨析-词义侧重",
-                      "answerCount": 14,
+                      "answerCount": 15,
                       "questionCount": 351,
-                      "correctRatio": 50.0,
-                      "score": 0.4493440762094995,
+                      "correctRatio": 46.666666666666664,
+                      "score": 0.4005125971859966,
                       "targetCorrectRatio": 80.0,
                       "keypoints": null
                     },
                     {
                       "id": 775853,
                       "name": "词的辨析-搭配对象",
-                      "answerCount": 100,
+                      "answerCount": 105,
                       "questionCount": 1449,
-                      "correctRatio": 53.0,
-                      "score": 0.4634643138498103,
+                      "correctRatio": 53.333333333333336,
+                      "score": 0.4671580870552745,
                       "targetCorrectRatio": 80.0,
                       "keypoints": null
                     },
                     {
                       "id": 775854,
                       "name": "词的辨析-感情色彩",
-                      "answerCount": 14,
+                      "answerCount": 16,
                       "questionCount": 209,
                       "correctRatio": 50.0,
-                      "score": 0.4493440762094995,
+                      "score": 0.45140169278490755,
                       "targetCorrectRatio": 80.0,
                       "keypoints": null
                     },
                     {
                       "id": 775855,
                       "name": "词的辨析-程度轻重",
-                      "answerCount": 24,
+                      "answerCount": 25,
                       "questionCount": 316,
-                      "correctRatio": 37.5,
-                      "score": 0.3419026631466601,
+                      "correctRatio": 36.0,
+                      "score": 0.32613619937256555,
                       "targetCorrectRatio": 80.0,
                       "keypoints": null
                     }
@@ -912,29 +932,29 @@
                 {
                   "id": 764022,
                   "name": "语境分析",
-                  "answerCount": 195,
+                  "answerCount": 211,
                   "questionCount": 2582,
-                  "correctRatio": 54.35897435897436,
-                  "score": 0.4726392341287184,
+                  "correctRatio": 54.502369668246445,
+                  "score": 0.4772922773627523,
                   "targetCorrectRatio": 80.0,
                   "keypoints": [
                     {
                       "id": 775856,
                       "name": "关联关系-转折关系",
-                      "answerCount": 18,
+                      "answerCount": 20,
                       "questionCount": 209,
-                      "correctRatio": 55.55555555555556,
-                      "score": 0.5160299799389604,
+                      "correctRatio": 50.0,
+                      "score": 0.4672651116871253,
                       "targetCorrectRatio": 80.0,
                       "keypoints": null
                     },
                     {
                       "id": 775857,
                       "name": "关联关系-并列关系",
-                      "answerCount": 47,
+                      "answerCount": 51,
                       "questionCount": 488,
-                      "correctRatio": 38.297872340425535,
-                      "score": 0.35859134132817455,
+                      "correctRatio": 41.1764705882353,
+                      "score": 0.3916279939777558,
                       "targetCorrectRatio": 80.0,
                       "keypoints": null
                     },
@@ -951,10 +971,10 @@
                     {
                       "id": 775859,
                       "name": "对应关系-解释说明",
-                      "answerCount": 13,
+                      "answerCount": 16,
                       "questionCount": 114,
-                      "correctRatio": 69.23076923076923,
-                      "score": 0.6283366341981688,
+                      "correctRatio": 75.0,
+                      "score": 0.715951007774628,
                       "targetCorrectRatio": 80.0,
                       "keypoints": null
                     },
@@ -971,20 +991,20 @@
                     {
                       "id": 827877,
                       "name": "对应关系-主题词",
-                      "answerCount": 5,
+                      "answerCount": 6,
                       "questionCount": 55,
-                      "correctRatio": 20.0,
-                      "score": 0.166430639780277,
+                      "correctRatio": 16.666666666666668,
+                      "score": 0.15258795010953574,
                       "targetCorrectRatio": 80.0,
                       "keypoints": null
                     },
                     {
                       "id": 827878,
                       "name": "对应关系-前后呼应",
-                      "answerCount": 147,
+                      "answerCount": 158,
                       "questionCount": 2112,
-                      "correctRatio": 59.183673469387756,
-                      "score": 0.5156428008355406,
+                      "correctRatio": 58.22784810126582,
+                      "score": 0.5060455727894294,
                       "targetCorrectRatio": 80.0,
                       "keypoints": null
                     }
@@ -995,19 +1015,19 @@
             {
               "id": 27153,
               "name": "片段阅读",
-              "answerCount": 407,
+              "answerCount": 444,
               "questionCount": 2923,
-              "correctRatio": 56.51105651105651,
-              "score": 0.4706773242928371,
+              "correctRatio": 56.08108108108108,
+              "score": 0.4702924031551699,
               "targetCorrectRatio": 82.0,
               "keypoints": [
                 {
                   "id": 27459,
                   "name": "中心理解题",
-                  "answerCount": 283,
+                  "answerCount": 311,
                   "questionCount": 1844,
-                  "correctRatio": 57.24381625441696,
-                  "score": 0.49732163635721277,
+                  "correctRatio": 56.27009646302251,
+                  "score": 0.4936190011885765,
                   "targetCorrectRatio": 80.0,
                   "keypoints": [
                     {
@@ -1023,50 +1043,50 @@
                     {
                       "id": 775834,
                       "name": "关联词-因果",
-                      "answerCount": 37,
+                      "answerCount": 39,
                       "questionCount": 275,
-                      "correctRatio": 51.351351351351354,
-                      "score": 0.44084118799019,
+                      "correctRatio": 51.282051282051285,
+                      "score": 0.4477828295908892,
                       "targetCorrectRatio": 0.0,
                       "keypoints": null
                     },
                     {
                       "id": 775835,
                       "name": "关联词-对策",
-                      "answerCount": 72,
+                      "answerCount": 81,
                       "questionCount": 502,
-                      "correctRatio": 68.05555555555556,
-                      "score": 0.57441230176985,
+                      "correctRatio": 67.90123456790124,
+                      "score": 0.5783811795600059,
                       "targetCorrectRatio": 80.0,
                       "keypoints": null
                     },
                     {
                       "id": 775836,
                       "name": "关联词-并列",
-                      "answerCount": 32,
+                      "answerCount": 36,
                       "questionCount": 245,
-                      "correctRatio": 59.375,
-                      "score": 0.5360826877730726,
+                      "correctRatio": 55.55555555555556,
+                      "score": 0.5201480843606413,
                       "targetCorrectRatio": 80.0,
                       "keypoints": null
                     },
                     {
                       "id": 775837,
                       "name": "主题词",
-                      "answerCount": 87,
+                      "answerCount": 97,
                       "questionCount": 434,
-                      "correctRatio": 47.12643678160919,
-                      "score": 0.40037425875632365,
+                      "correctRatio": 46.391752577319586,
+                      "score": 0.3978305017073741,
                       "targetCorrectRatio": 80.0,
                       "keypoints": null
                     },
                     {
                       "id": 775839,
                       "name": "分述句特征-举例子",
-                      "answerCount": 14,
+                      "answerCount": 18,
                       "questionCount": 104,
                       "correctRatio": 50.0,
-                      "score": 0.416699019440827,
+                      "score": 0.41599109782262084,
                       "targetCorrectRatio": 0.0,
                       "keypoints": null
                     },
@@ -1083,10 +1103,10 @@
                     {
                       "id": 775841,
                       "name": "分述句特征-多角度论述",
-                      "answerCount": 11,
+                      "answerCount": 15,
                       "questionCount": 99,
-                      "correctRatio": 63.63636363636363,
-                      "score": 0.49152466192054944,
+                      "correctRatio": 53.333333333333336,
+                      "score": 0.4084645789203631,
                       "targetCorrectRatio": 0.0,
                       "keypoints": null
                     },
@@ -1103,20 +1123,20 @@
                     {
                       "id": 840686,
                       "name": "分述句特征-其他",
-                      "answerCount": 17,
+                      "answerCount": 19,
                       "questionCount": 125,
-                      "correctRatio": 47.05882352941177,
-                      "score": 0.39883203930587946,
+                      "correctRatio": 47.36842105263158,
+                      "score": 0.39511551753123264,
                       "targetCorrectRatio": 0.0,
                       "keypoints": null
                     },
                     {
                       "id": 775842,
                       "name": "特殊问法",
-                      "answerCount": 9,
+                      "answerCount": 10,
                       "questionCount": 72,
-                      "correctRatio": 33.333333333333336,
-                      "score": 0.2921707818221864,
+                      "correctRatio": 40.0,
+                      "score": 0.34101969772808016,
                       "targetCorrectRatio": 80.0,
                       "keypoints": null
                     }
@@ -1125,10 +1145,10 @@
                 {
                   "id": 27463,
                   "name": "细节判断题",
-                  "answerCount": 91,
+                  "answerCount": 98,
                   "questionCount": 754,
-                  "correctRatio": 56.043956043956044,
-                  "score": 0.41641549099352193,
+                  "correctRatio": 58.16326530612245,
+                  "score": 0.433874409149962,
                   "targetCorrectRatio": 85.0,
                   "keypoints": null
                 },
@@ -1176,10 +1196,10 @@
                 {
                   "id": 764011,
                   "name": "标题填入题",
-                  "answerCount": 30,
+                  "answerCount": 32,
                   "questionCount": 189,
-                  "correctRatio": 46.666666666666664,
-                  "score": 0.3576602921850022,
+                  "correctRatio": 43.75,
+                  "score": 0.3326227826073617,
                   "targetCorrectRatio": 85.0,
                   "keypoints": null
                 }
@@ -1188,28 +1208,28 @@
             {
               "id": 67539,
               "name": "语句表达",
-              "answerCount": 84,
+              "answerCount": 91,
               "questionCount": 1005,
-              "correctRatio": 65.47619047619048,
-              "score": 0.5767448269582048,
+              "correctRatio": 61.53846153846154,
+              "score": 0.5394865263289462,
               "targetCorrectRatio": 75.0,
               "keypoints": [
                 {
                   "id": 67541,
                   "name": "语句排序题",
-                  "answerCount": 37,
+                  "answerCount": 39,
                   "questionCount": 418,
-                  "correctRatio": 59.45945945945946,
-                  "score": 0.5113278573268969,
+                  "correctRatio": 56.41025641025641,
+                  "score": 0.49185868535842675,
                   "targetCorrectRatio": 80.0,
                   "keypoints": [
                     {
                       "id": 775844,
                       "name": "确定首句-首句特征",
-                      "answerCount": 8,
+                      "answerCount": 9,
                       "questionCount": 76,
-                      "correctRatio": 37.5,
-                      "score": 0.3119510679500748,
+                      "correctRatio": 33.333333333333336,
+                      "score": 0.2921707818221864,
                       "targetCorrectRatio": 80.0,
                       "keypoints": null
                     },
@@ -1226,20 +1246,20 @@
                     {
                       "id": 775846,
                       "name": "确定捆绑",
-                      "answerCount": 18,
+                      "answerCount": 19,
                       "questionCount": 228,
-                      "correctRatio": 61.111111111111114,
-                      "score": 0.5177816398664213,
+                      "correctRatio": 57.89473684210526,
+                      "score": 0.49711556909214843,
                       "targetCorrectRatio": 80.0,
                       "keypoints": null
                     },
                     {
                       "id": 775847,
                       "name": "确定顺序",
-                      "answerCount": 26,
+                      "answerCount": 28,
                       "questionCount": 288,
-                      "correctRatio": 57.69230769230769,
-                      "score": 0.5010621333258604,
+                      "correctRatio": 53.57142857142857,
+                      "score": 0.4748579036463547,
                       "targetCorrectRatio": 80.0,
                       "keypoints": null
                     },
@@ -1258,19 +1278,19 @@
                 {
                   "id": 67543,
                   "name": "语句填空题",
-                  "answerCount": 29,
+                  "answerCount": 32,
                   "questionCount": 377,
-                  "correctRatio": 75.86206896551724,
-                  "score": 0.6752461801191878,
+                  "correctRatio": 71.875,
+                  "score": 0.6303822160521265,
                   "targetCorrectRatio": 75.0,
                   "keypoints": [
                     {
                       "id": 775849,
                       "name": "横线在开头",
-                      "answerCount": 6,
+                      "answerCount": 7,
                       "questionCount": 65,
-                      "correctRatio": 66.66666666666667,
-                      "score": 0.6760463380307522,
+                      "correctRatio": 57.142857142857146,
+                      "score": 0.5695930124024339,
                       "targetCorrectRatio": 75.0,
                       "keypoints": null
                     },
@@ -1287,10 +1307,10 @@
                     {
                       "id": 775851,
                       "name": "横线在结尾",
-                      "answerCount": 8,
+                      "answerCount": 10,
                       "questionCount": 154,
-                      "correctRatio": 75.0,
-                      "score": 0.6751932552139533,
+                      "correctRatio": 70.0,
+                      "score": 0.6175141935932673,
                       "targetCorrectRatio": 75.0,
                       "keypoints": null
                     },
@@ -1309,10 +1329,10 @@
                 {
                   "id": 648970,
                   "name": "接语选择题",
-                  "answerCount": 18,
+                  "answerCount": 20,
                   "questionCount": 208,
-                  "correctRatio": 61.111111111111114,
-                  "score": 0.5648643042117322,
+                  "correctRatio": 55.0,
+                  "score": 0.4971541619348025,
                   "targetCorrectRatio": 80.0,
                   "keypoints": null
                 },

@@ -8,6 +8,10 @@ const app = document.getElementById('app');
     let charts = [];
     let unmountRadarHover = null;
 
+    function handleViewportResize() {
+      charts.forEach(chart => chart.resize());
+    }
+
     function escapeHtml(value) {
       return String(value ?? '')
         .replace(/&/g, '&amp;')
@@ -15,6 +19,120 @@ const app = document.getElementById('app');
         .replace(/>/g, '&gt;')
         .replace(/"/g, '&quot;')
         .replace(/'/g, '&#039;');
+    }
+
+    function renderInlineMarkdown(value) {
+      return escapeHtml(value)
+        .replace(/`([^`]+)`/g, '<code>$1</code>')
+        .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+        .replace(/__([^_]+)__/g, '<strong>$1</strong>');
+    }
+
+    function normalizeMarkdown(value) {
+      const text = String(value ?? '').trim();
+      const fenced = text.match(/^```(?:markdown|md)?\s*\n([\s\S]*?)\n```\s*$/i);
+      return fenced ? fenced[1].trim() : text;
+    }
+
+    function markdownToHtml(value) {
+      const markdown = normalizeMarkdown(value);
+      if (window.marked?.parse) {
+        return window.marked.parse(escapeHtml(markdown), {
+          async: false,
+          breaks: true,
+          gfm: true,
+          mangle: false,
+          headerIds: false
+        }) || '<p>等待分析</p>';
+      }
+
+      const lines = markdown.replace(/\r\n?/g, '\n').split('\n');
+      const html = [];
+      let paragraph = [];
+      let listType = '';
+      let inCodeBlock = false;
+      let codeLines = [];
+
+      const closeParagraph = () => {
+        if (!paragraph.length) return;
+        html.push(`<p>${renderInlineMarkdown(paragraph.join(' '))}</p>`);
+        paragraph = [];
+      };
+
+      const closeList = () => {
+        if (!listType) return;
+        html.push(`</${listType}>`);
+        listType = '';
+      };
+
+      const openList = type => {
+        if (listType === type) return;
+        closeList();
+        html.push(`<${type}>`);
+        listType = type;
+      };
+
+      for (const rawLine of lines) {
+        const line = rawLine.trimEnd();
+        const trimmed = line.trim();
+
+        if (trimmed.startsWith('```')) {
+          closeParagraph();
+          closeList();
+          if (inCodeBlock) {
+            html.push(`<pre><code>${escapeHtml(codeLines.join('\n'))}</code></pre>`);
+            codeLines = [];
+          }
+          inCodeBlock = !inCodeBlock;
+          continue;
+        }
+
+        if (inCodeBlock) {
+          codeLines.push(rawLine);
+          continue;
+        }
+
+        if (!trimmed) {
+          closeParagraph();
+          closeList();
+          continue;
+        }
+
+        const heading = trimmed.match(/^(#{1,4})\s+(.+)$/);
+        if (heading) {
+          closeParagraph();
+          closeList();
+          const level = heading[1].length;
+          html.push(`<h${level}>${renderInlineMarkdown(heading[2])}</h${level}>`);
+          continue;
+        }
+
+        const unordered = trimmed.match(/^[-*+]\s+(.+)$/);
+        if (unordered) {
+          closeParagraph();
+          openList('ul');
+          html.push(`<li>${renderInlineMarkdown(unordered[1])}</li>`);
+          continue;
+        }
+
+        const ordered = trimmed.match(/^\d+\.\s+(.+)$/);
+        if (ordered) {
+          closeParagraph();
+          openList('ol');
+          html.push(`<li>${renderInlineMarkdown(ordered[1])}</li>`);
+          continue;
+        }
+
+        closeList();
+        paragraph.push(trimmed);
+      }
+
+      if (inCodeBlock) {
+        html.push(`<pre><code>${escapeHtml(codeLines.join('\n'))}</code></pre>`);
+      }
+      closeParagraph();
+      closeList();
+      return html.join('') || '<p>等待分析</p>';
     }
 
     function formatDate(ms) {
@@ -160,15 +278,18 @@ const app = document.getElementById('app');
             <div class="stat-value">${fmtNumber.format(report.exerciseCount)}</div>
             <div class="stat-context">${fmtNumber.format(report.exerciseDay)} 天练习记录</div>
           </div>
-          <div class="stat">
+          <div class="stat stat-wide">
             <div class="stat-label">预测分排名</div>
             <div class="stat-value">${rankText}</div>
             <div class="stat-context">答题量排名 ${answerRankText}</div>
+            <div class="stat-extra">
+              <span>考试类型：${escapeHtml(report.userQuiz?.name || '--')}</span>
+              <span>官网预测最高分：${fmtScore.format(report.maxForecastScore)}</span>
+            </div>
           </div>
         </div>
       `;
     }
-
     function trendChart(report) {
       const trends = [...report.trends].sort((a, b) => a.time - b.time);
       if (trends.length < 2) return '<div class="empty">趋势点不足</div>';
@@ -205,8 +326,6 @@ const app = document.getElementById('app');
       return `
         <div class="summary-card surface">
           <ul class="insight-list">
-            <li><span>考试类型</span><span class="metric">${escapeHtml(report.userQuiz?.name || '--')}</span></li>
-            <li><span>官网预测最高分</span><span class="metric">${fmtScore.format(report.maxForecastScore)}</span></li>
             <li><span>练习最多模块</span><span class="metric">${escapeHtml(sorted[0]?.name || '--')}</span></li>
             <li><span>当前薄弱模块</span><span class="metric">${escapeHtml(weakest?.name || '--')}</span></li>
             <li><span>当前优势模块</span><span class="metric">${escapeHtml(strongest?.name || '--')}</span></li>
@@ -214,11 +333,10 @@ const app = document.getElementById('app');
         </div>
       `;
     }
-
     function topReportBlocks(report) {
       return `
-        <section class="section">
-          <div class="report-charts">
+        <section class="section report-main-section">
+          <div class="report-charts report-main-grid">
             <div class="report-chart-panel">
               <div class="section-head">
                 <h2>能力分析</h2>
@@ -229,57 +347,39 @@ const app = document.getElementById('app');
             </div>
             <div class="report-chart-panel">
               <div class="section-head">
-                <h2>报告摘要</h2>
+                <h2>模块正确率</h2>
               </div>
-              ${summaryCard(report)}
-            </div>
-          </div>
-        </section>
-      `;
-    }
-
-    function reportCharts(report) {
-      return `
-        <section class="section">
-          <div class="section-head">
-            <h2>用户报告图表</h2>
-            <span class="muted">ECharts 渲染</span>
-          </div>
-          <div class="report-charts">
-            <div class="report-chart-panel">
               <div class="mini-chart surface">
-                <h3>模块正确率</h3>
                 <div class="echart compact" id="correctRatioChart" role="img" aria-label="模块正确率图表"></div>
               </div>
             </div>
             <div class="report-chart-panel">
+              <div class="section-head">
+                <h2>答题量分布</h2>
+              </div>
               <div class="mini-chart surface">
-                <h3>答题量分布</h3>
                 <div class="echart compact" id="answerCountChart" role="img" aria-label="答题量分布图表"></div>
               </div>
-            </div>
-            <div class="report-chart-panel report-chart-panel-wide">
-              <div class="section-head">
-                <h2>预测分趋势</h2>
-                <span class="muted">${report.trends.length} 个趋势点</span>
-              </div>
-              ${trendChart(report)}
             </div>
           </div>
         </section>
       `;
     }
-
-    function overviewPanel(report) {
+    function reportCharts(report) {
+      return '';
+    }
+    function overviewPanel(report, historyItems = []) {
       return `
         <section class="panel active" id="panel-overview">
           ${buildStats(report)}
           ${topReportBlocks(report)}
           ${reportCharts(report)}
+          <section class="section overview-history-section">
+            ${historyBlock(historyItems, { idPrefix: 'overview' })}
+          </section>
         </section>
       `;
     }
-
     function historyPanel(historyItems) {
       const finished = historyItems.filter(item => item.status === 1);
       const pending = historyItems.length - finished.length;
@@ -322,54 +422,10 @@ const app = document.getElementById('app');
       `;
     }
 
-    function renderHistoryList(historyItems, filter = 'all') {
-      const list = document.getElementById('historyList');
-      const items = historyItems.filter(item => {
-        if (filter === 'finished') return item.status === 1;
-        if (filter === 'pending') return item.status !== 1;
-        return true;
-      });
-      list.innerHTML = items.length ? items.map(item => `
-        <article class="history-item">
-          <div>
-            <div class="history-title">${escapeHtml(item.sheetName)}</div>
-            <div class="history-meta">
-              <span>难度 ${fmtScore.format(item.difficulty)}</span>
-              <span>${formatDate(item.updatedTime)}</span>
-              <span>题量 ${item.questionCount || 0}</span>
-            </div>
-          </div>
-          <div>
-            ${item.status === 1
-              ? `<span class="score-pill">共${item.questionCount}题，答对 <strong>${item.correctCount}</strong> 题</span>`
-              : '<span class="status-pill">继续做题</span>'}
-          </div>
-        </article>
-      `).join('') : '<div class="empty">当前筛选下没有练习记录</div>';
-    }
-
-    function analysisPanel(historyItems = [], errorTree = []) {
-      const provider = localStorage.getItem('aiProvider') || 'relay';
-      const scope = analysisScope(historyItems, errorTree);
-      return `
-        <section class="panel" id="panel-analysis">
-          <div class="section-head">
-            <h2>AI 分析</h2>
-            <span class="muted">服务商：${escapeHtml(provider)}</span>
-          </div>
-          <div class="ai-analysis surface">
-            <div class="ai-toolbar">
-              <button type="button" id="startAnalysisButton" class="refresh-action">开始分析当前错题</button>
-              <a href="/admin.html" class="secondary-action">切换 AI 服务商</a>
-            </div>
-            <div id="analysisStatus" class="analysis-status">${analysisStatusText('ready', provider, scope)}</div>
-            <pre id="analysisOutput" class="analysis-output">等待分析</pre>
-          </div>
-        </section>
-      `;
-    }
-
-    function historyBlock(historyItems) {
+    function historyBlock(historyItems, options = {}) {
+      const idPrefix = options.idPrefix || 'errors';
+      const filterId = `${idPrefix}HistoryFilter`;
+      const listId = `${idPrefix}HistoryList`;
       const recent = recentHistoryItems(historyItems);
       const finished = recent.filter(item => item.status === 1);
       const totalQuestions = finished.reduce((sum, item) => sum + (item.questionCount || 0), 0);
@@ -402,14 +458,14 @@ const app = document.getElementById('app');
           </div>
         </div>
         <div class="controls">
-          <label for="historyFilter" class="muted">状态</label>
-          <select id="historyFilter">
+          <label for="${filterId}" class="muted">状态</label>
+          <select id="${filterId}" data-history-filter="${idPrefix}">
             <option value="all">全部</option>
             <option value="finished">已完成</option>
             <option value="pending">继续做题</option>
           </select>
         </div>
-        <div class="history-list" id="historyList"></div>
+        <div class="history-list" id="${listId}" data-history-list="${idPrefix}"></div>
       `;
     }
 
@@ -419,8 +475,8 @@ const app = document.getElementById('app');
         .slice(0, 10);
     }
 
-    function renderHistoryList(historyItems, filter = 'all') {
-      const list = document.getElementById('historyList');
+    function renderHistoryList(historyItems, filter = 'all', idPrefix = 'errors') {
+      const list = document.querySelector(`[data-history-list="${idPrefix}"]`);
       if (!list) return;
       const items = recentHistoryItems(historyItems).filter(item => {
         if (filter === 'finished') return item.status === 1;
@@ -446,6 +502,26 @@ const app = document.getElementById('app');
       `).join('') : '<div class="empty">当前筛选下没有练习记录</div>';
     }
 
+    function analysisPanel(historyItems = [], errorTree = []) {
+      const provider = localStorage.getItem('aiProvider') || 'relay';
+      const scope = analysisScope(historyItems, errorTree);
+      return `
+        <section class="panel" id="panel-analysis">
+          <div class="section-head">
+            <h2>AI 分析</h2>
+            <span class="muted">服务商：${escapeHtml(provider)}</span>
+          </div>
+          <div class="ai-analysis surface">
+            <div class="ai-toolbar">
+              <button type="button" id="startAnalysisButton" class="refresh-action">开始分析当前错题</button>
+              <button type="button" class="secondary-action" data-open-settings>切换 AI 服务商</button>
+            </div>
+            <div id="analysisStatus" class="analysis-status">${analysisStatusText('ready', provider, scope)}</div>
+            <div id="analysisOutput" class="analysis-output markdown-body">等待分析</div>
+          </div>
+        </section>
+      `;
+    }
     function countQuestions(node) {
       if (!node || typeof node !== 'object') return 0;
       const own = Array.isArray(node.questionIds) ? node.questionIds.length : 0;
@@ -559,7 +635,7 @@ const app = document.getElementById('app');
         <details class="mastery-child-detail" style="margin-left:${Math.min(depth, 3) * 14}px">
           <summary class="mastery-child">
             <div>
-              <div class="mastery-title">${hasChildren ? '<span class="toggle-mark"></span>' : '<span class="toggle-spacer"></span>'}<span class="mastery-name">${escapeHtml(item.name)}</span></div>
+              <div class="mastery-title">${hasChildren ? '<span class="toggle-mark" aria-hidden="true"></span>' : '<span class="toggle-spacer" aria-hidden="true"></span>'}<span class="mastery-name">${escapeHtml(item.name)}</span></div>
               <div class="mastery-meta">题库 ${fmtNumber.format(item.questionCount || 0)} 题 · 已做 ${fmtNumber.format(item.answerCount || 0)} 题</div>
             </div>
             ${masteryProgress(item)}
@@ -577,7 +653,7 @@ const app = document.getElementById('app');
         <details class="mastery-detail">
           <summary>
             <div>
-              <div class="mastery-title"><span class="toggle-mark"></span><span class="mastery-name">${escapeHtml(item.name)}</span></div>
+              <div class="mastery-title"><span class="toggle-mark" aria-hidden="true"></span><span class="mastery-name">${escapeHtml(item.name)}</span></div>
               <div class="mastery-meta">${children.length} 个二级知识点 · 题库 ${fmtNumber.format(item.questionCount || 0)} 题</div>
             </div>
             ${masteryProgress(item, { showTarget: true })}
@@ -618,7 +694,6 @@ const app = document.getElementById('app');
               <div class="stat-context">来自接口响应</div>
             </div>
           </div>
-          ${historyBlock(historyItems)}
           <div class="section-head">
             <h2>知识点掌握</h2>
             <span class="muted">一级题型含目标线，展开后展示二级知识点正确率</span>
@@ -907,7 +982,14 @@ const app = document.getElementById('app');
       document.querySelectorAll('.panel').forEach(panel => {
         panel.classList.toggle('active', panel.id === `panel-${panelName}`);
       });
-      requestAnimationFrame(() => charts.forEach(chart => chart.resize()));
+      const contentArea = document.querySelector('.content-area');
+      if (contentArea) contentArea.scrollTop = 0;
+      requestAnimationFrame(() => {
+        charts.forEach(chart => chart.resize());
+        if (panelName === 'overview') {
+          requestAnimationFrame(() => charts.forEach(chart => chart.resize()));
+        }
+      });
     }
 
     function extractAnalysisChunk(raw) {
@@ -929,9 +1011,10 @@ const app = document.getElementById('app');
       const provider = localStorage.getItem('aiProvider') || 'relay';
       const scope = analysisScope(historyItems, errorTree);
       let receivedChars = 0;
+      let analysisText = '';
       button.disabled = true;
       status.textContent = analysisStatusText('running', provider, scope);
-      output.textContent = '';
+      output.innerHTML = markdownToHtml('');
 
       const source = new EventSource(`/api/analysis/stream?provider=${encodeURIComponent(provider)}`);
       source.onmessage = event => {
@@ -942,7 +1025,8 @@ const app = document.getElementById('app');
           return;
         }
         const chunk = extractAnalysisChunk(event.data);
-        output.textContent += chunk;
+        analysisText += chunk;
+        output.innerHTML = markdownToHtml(analysisText);
         receivedChars += chunk.length;
         status.textContent = analysisStatusText('running', provider, scope, { receivedChars });
         output.scrollTop = output.scrollHeight;
@@ -954,20 +1038,175 @@ const app = document.getElementById('app');
       };
     }
 
+    function settingsElements() {
+      return {
+        modal: document.getElementById('settingsModal'),
+        openButton: document.getElementById('settingsButton'),
+        closeButton: document.getElementById('settingsCloseButton'),
+        statusGrid: document.getElementById('settingsStatusGrid'),
+        providerSelect: document.getElementById('settingsProviderSelect'),
+        saveProviderButton: document.getElementById('settingsSaveProviderButton'),
+        providerHint: document.getElementById('settingsProviderHint'),
+        cookieInput: document.getElementById('settingsCookieInput'),
+        saveCookieButton: document.getElementById('settingsSaveCookieButton'),
+        message: document.getElementById('settingsMessage')
+      };
+    }
+
+    function setSettingsMessage(text, type = '') {
+      const { message } = settingsElements();
+      if (!message) return;
+      message.hidden = false;
+      message.className = `settings-message ${type}`;
+      message.textContent = text;
+    }
+
+    async function loadSettingsStatus() {
+      const { statusGrid } = settingsElements();
+      if (!statusGrid) return;
+      try {
+        const res = await fetch('/api/health', { cache: 'no-store' });
+        const payload = await res.json();
+        const status = payload.status || {};
+        statusGrid.innerHTML = `
+          <div class="settings-status-item">
+            <div class="label">Cookie</div>
+            <div class="value">${payload.cookie?.configured ? '已配置' : '未配置'}</div>
+          </div>
+          <div class="settings-status-item">
+            <div class="label">来源</div>
+            <div class="value">${escapeHtml(payload.cookie?.source || '--')}</div>
+          </div>
+          <div class="settings-status-item">
+            <div class="label">最近状态</div>
+            <div class="value">${status.ok ? '成功' : escapeHtml(status.last_error?.message || '暂无成功记录')}</div>
+          </div>
+        `;
+      } catch (error) {
+        setSettingsMessage(`健康检查失败：${error.message}`, 'error');
+      }
+    }
+
+    async function loadSettingsProviders() {
+      const { providerSelect, providerHint } = settingsElements();
+      if (!providerSelect || !providerHint) return;
+      try {
+        const res = await fetch('/api/analysis/providers', { cache: 'no-store' });
+        const payload = await res.json();
+        if (!res.ok || !payload.ok) {
+          throw new Error(payload.detail?.message || payload.error?.message || `HTTP ${res.status}`);
+        }
+        const providers = payload.providers || [];
+        const defaultProvider = providers.find(provider => provider.default)?.id || providers[0]?.id || 'relay';
+        const savedProvider = localStorage.getItem('aiProvider') || defaultProvider;
+        providerSelect.innerHTML = providers.map(provider => `
+          <option value="${escapeHtml(provider.id)}" ${provider.id === savedProvider ? 'selected' : ''}>
+            ${escapeHtml(provider.name)} / ${escapeHtml(provider.model)}${provider.configured ? '' : '（未配置 Key）'}
+          </option>
+        `).join('');
+        providerHint.textContent = providers.length
+          ? '这里保存当前浏览器的服务商选择，API Key 仍由后端环境变量配置。'
+          : '后端未返回可用 AI 服务商。';
+      } catch (error) {
+        providerHint.textContent = `服务商读取失败：${error.message}`;
+      }
+    }
+
+    function openSettingsModal() {
+      const { modal, cookieInput } = settingsElements();
+      if (!modal) return;
+      modal.hidden = false;
+      document.body.classList.add('modal-open');
+      loadSettingsStatus();
+      loadSettingsProviders();
+      setTimeout(() => cookieInput?.focus(), 0);
+    }
+
+    function closeSettingsModal() {
+      const { modal, openButton } = settingsElements();
+      if (!modal) return;
+      modal.hidden = true;
+      document.body.classList.remove('modal-open');
+      openButton?.focus();
+    }
+
+    function wireSettingsModal() {
+      const {
+        openButton,
+        closeButton,
+        modal,
+        providerSelect,
+        saveProviderButton,
+        providerHint,
+        cookieInput,
+        saveCookieButton
+      } = settingsElements();
+
+      openButton?.addEventListener('click', openSettingsModal);
+      closeButton?.addEventListener('click', closeSettingsModal);
+      modal?.querySelectorAll('[data-close-settings]').forEach(element => {
+        element.addEventListener('click', closeSettingsModal);
+      });
+      document.addEventListener('keydown', event => {
+        if (event.key === 'Escape' && modal && !modal.hidden) closeSettingsModal();
+      });
+
+      saveProviderButton?.addEventListener('click', () => {
+        const provider = providerSelect?.value || 'relay';
+        localStorage.setItem('aiProvider', provider);
+        if (providerHint) providerHint.textContent = `已保存服务商：${provider}`;
+      });
+
+      saveCookieButton?.addEventListener('click', async () => {
+        const cookie = cookieInput?.value.trim() || '';
+        if (!cookie) {
+          setSettingsMessage('Cookie 不能为空', 'error');
+          return;
+        }
+        saveCookieButton.disabled = true;
+        setSettingsMessage('正在验证 Cookie，请稍候');
+        try {
+          const res = await fetch('/api/admin/cookie', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ cookie })
+          });
+          const payload = await res.json();
+          if (!res.ok || !payload.ok) {
+            throw new Error(payload.error?.message || `HTTP ${res.status}`);
+          }
+          cookieInput.value = '';
+          setSettingsMessage(`${payload.message || '更新成功'} ${payload.warning || ''}`.trim(), 'ok');
+          await loadSettingsStatus();
+        } catch (error) {
+          setSettingsMessage(`更新失败：${error.message}`, 'error');
+        } finally {
+          saveCookieButton.disabled = false;
+        }
+      });
+    }
+
     function wireInteractions(historyItems, errorTree) {
       document.querySelectorAll('.nav button[data-panel]').forEach(button => {
         button.addEventListener('click', () => activatePanel(button.dataset.panel));
       });
 
-      const filter = document.getElementById('historyFilter');
-      filter?.addEventListener('change', () => renderHistoryList(historyItems, filter.value));
-      renderHistoryList(historyItems);
+      document.querySelectorAll('[data-history-filter]').forEach(filter => {
+        filter.addEventListener('change', () => renderHistoryList(historyItems, filter.value, filter.dataset.historyFilter));
+        renderHistoryList(historyItems, filter.value, filter.dataset.historyFilter);
+      });
 
       document.getElementById('startAnalysisButton')?.addEventListener('click', () => startAiAnalysis(historyItems, errorTree));
+      document.querySelectorAll('[data-open-settings]').forEach(element => {
+        element.addEventListener('click', event => {
+          event.preventDefault();
+          openSettingsModal();
+        });
+      });
     }
 
     refreshButton.addEventListener('click', refreshReport);
-
+    wireSettingsModal();
     async function boot() {
       try {
         const apiReport = await loadReport();
@@ -978,17 +1217,18 @@ const app = document.getElementById('app');
         subtitle.textContent = `${report.userQuiz?.name || '行测'} · 用户 ${report.userId}`;
         sourceNote.textContent = `${apiReport.meta?.stale ? '缓存数据' : '动态数据'} · 更新：${new Date(apiReport.meta?.fetched_at || Date.now()).toLocaleString('zh-CN', { hour12: false })}`;
         app.innerHTML = [
-          overviewPanel(report),
+          overviewPanel(report, historyItems),
           analysisPanel(historyItems, errorTree),
           errorsPanel(errorTree, report, historyItems)
         ].join('');
         wireInteractions(historyItems, errorTree);
         initCharts(report);
-        window.addEventListener('resize', () => charts.forEach(chart => chart.resize()));
+        window.removeEventListener('resize', handleViewportResize);
+        window.addEventListener('resize', handleViewportResize);
       } catch (error) {
         subtitle.textContent = '报告数据读取失败';
         sourceNote.textContent = '请检查 Cookie 或服务状态';
-        app.innerHTML = `<div class="error">报告数据读取失败：${escapeHtml(error.message)}。<a href="/admin.html">前往 Cookie 设置</a></div>`;
+        app.innerHTML = `<div class="error">报告数据读取失败：${escapeHtml(error.message)}。<button type="button" class="link-button" data-open-settings>前往 Cookie 设置</button></div>`;
       }
     }
 
