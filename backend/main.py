@@ -1,3 +1,5 @@
+import os
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
@@ -9,10 +11,12 @@ from backend.services.fenbi_client import start_silent_refresh_loop
 
 def create_app() -> FastAPI:
     app = FastAPI(title="Fenbi Report Server")
+    app.state.trust_current_host = os.getenv("TRUST_CURRENT_HOST", "").strip() == "1"
 
     app.add_middleware(
         CORSMiddleware,
         allow_origins=ALLOWED_ORIGINS,
+        allow_origin_regex=r"https?://.*" if app.state.trust_current_host else None,
         allow_methods=["GET", "POST", "HEAD", "OPTIONS"],
         allow_headers=["Content-Type"],
         allow_credentials=False,
