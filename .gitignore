@@ -1,6 +1,7 @@
 .idea/
 .playwright-cli/
 .venv/
+.edgeone_pyenv/
 output/
 dist/
 __pycache__/
