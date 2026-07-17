@@ -34,6 +34,8 @@ MANUAL_REFRESH_LIMIT_PER_HOUR = int(os.getenv("MANUAL_REFRESH_LIMIT_PER_HOUR", "
 AI_API_KEY = os.getenv("AI_API_KEY", "").strip()
 AI_BASE_URL = os.getenv("AI_BASE_URL", "https://api.openai.com/v1").rstrip("/")
 AI_MODEL = os.getenv("AI_MODEL", "gpt-4.1-mini")
+AI_DEFAULT_PROVIDER = os.getenv("AI_DEFAULT_PROVIDER", "relay").strip() or "relay"
+AI_RELAY_DISABLE_RESPONSE_STORAGE = os.getenv("AI_RELAY_DISABLE_RESPONSE_STORAGE", "true").lower() in {"1", "true", "yes", "on"}
 
 AI_PROVIDERS = {
     "openai": {
@@ -42,6 +44,17 @@ AI_PROVIDERS = {
         "model": os.getenv("OPENAI_MODEL", AI_MODEL),
         "api_key_env": "OPENAI_API_KEY",
         "fallback_api_key": AI_API_KEY,
+        "wire_api": "chat_completions",
+    },
+    "relay": {
+        "name": os.getenv("AI_RELAY_NAME", "AI 中转站"),
+        "base_url": os.getenv("AI_RELAY_BASE_URL", "https://relay.nf.video/v1").rstrip("/"),
+        "model": os.getenv("AI_RELAY_MODEL", "gpt-5.5"),
+        "api_key_env": "AI_RELAY_API_KEY",
+        "fallback_api_key": "",
+        "wire_api": os.getenv("AI_RELAY_WIRE_API", "responses"),
+        "reasoning_effort": os.getenv("AI_RELAY_REASONING_EFFORT", "high"),
+        "store": not AI_RELAY_DISABLE_RESPONSE_STORAGE,
     },
     "deepseek": {
         "name": "DeepSeek",
@@ -49,6 +62,7 @@ AI_PROVIDERS = {
         "model": os.getenv("DEEPSEEK_MODEL", "deepseek-chat"),
         "api_key_env": "DEEPSEEK_API_KEY",
         "fallback_api_key": "",
+        "wire_api": "chat_completions",
     },
     "qwen": {
         "name": "通义千问",
@@ -56,5 +70,6 @@ AI_PROVIDERS = {
         "model": os.getenv("QWEN_MODEL", "qwen-plus"),
         "api_key_env": "DASHSCOPE_API_KEY",
         "fallback_api_key": "",
+        "wire_api": "chat_completions",
     },
 }

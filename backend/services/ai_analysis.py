@@ -5,7 +5,7 @@ from typing import Any
 
 import requests
 
-from backend.config import AI_PROVIDERS
+from backend.config import AI_DEFAULT_PROVIDER, AI_PROVIDERS
 from backend.services.fenbi_client import FenbiError
 
 
@@ -19,12 +19,13 @@ def available_ai_providers() -> list[dict[str, Any]]:
                 "name": config["name"],
                 "model": config["model"],
                 "configured": bool(api_key),
+                "default": provider_id == AI_DEFAULT_PROVIDER,
             }
         )
     return providers
 
 
-async def stream_report_analysis(report: dict[str, Any], provider: str = "openai") -> AsyncIterator[str]:
+async def stream_report_analysis(report: dict[str, Any], provider: str = AI_DEFAULT_PROVIDER) -> AsyncIterator[str]:
     config = _provider_config(provider)
     api_key = _provider_api_key(config)
     if not api_key:
@@ -38,17 +39,34 @@ async def stream_report_analysis(report: dict[str, Any], provider: str = "openai
         yield "data: [DONE]\n\n"
         return
 
+    messages = [
+        {
+            "role": "system",
+            "content": "你是公务员行测错题分析助手。请基于错题、知识点掌握度和练习历史，输出简洁、具体、可执行的复盘建议。",
+        },
+        {"role": "user", "content": _build_analysis_prompt(report)},
+    ]
+
+    if config.get("wire_api") == "responses":
+        async for chunk in _stream_responses(config, api_key, messages, provider):
+            yield chunk
+        return
+
+    async for chunk in _stream_chat_completions(config, api_key, messages, provider):
+        yield chunk
+
+
+async def _stream_chat_completions(
+    config: dict[str, Any],
+    api_key: str,
+    messages: list[dict[str, str]],
+    provider: str,
+) -> AsyncIterator[str]:
     payload = {
         "model": config["model"],
         "stream": True,
         "temperature": 0.3,
-        "messages": [
-            {
-                "role": "system",
-                "content": "你是公务员行测错题分析助手。请基于错题、知识点掌握度和练习历史，输出简洁、具体、可执行的复盘建议。",
-            },
-            {"role": "user", "content": _build_analysis_prompt(report)},
-        ],
+        "messages": messages,
     }
     headers = {
         "Authorization": f"Bearer {api_key}",
@@ -68,7 +86,76 @@ async def stream_report_analysis(report: dict[str, Any], provider: str = "openai
                 if line:
                     yield f"{line}\n\n"
     except requests.RequestException as exc:
-        raise FenbiError("AI 服务调用失败。", 502, {"provider": provider, "error": str(exc)}) from exc
+        raise FenbiError("AI 服务调用失败。", 502, {"provider": provider, "wire_api": "chat_completions", "error": str(exc)}) from exc
+
+
+async def _stream_responses(
+    config: dict[str, Any],
+    api_key: str,
+    messages: list[dict[str, str]],
+    provider: str,
+) -> AsyncIterator[str]:
+    payload = {
+        "model": config["model"],
+        "stream": True,
+        "temperature": 0.3,
+        "input": messages,
+    }
+    if "store" in config:
+        payload["store"] = config["store"]
+    if config.get("reasoning_effort"):
+        payload["reasoning"] = {"effort": config["reasoning_effort"]}
+    headers = {
+        "Authorization": f"Bearer {api_key}",
+        "Content-Type": "application/json",
+    }
+
+    try:
+        with requests.post(
+            f"{config['base_url']}/responses",
+            headers=headers,
+            json=payload,
+            stream=True,
+            timeout=60,
+        ) as response:
+            response.raise_for_status()
+            for line in response.iter_lines(decode_unicode=True):
+                if not line:
+                    continue
+                if not line.startswith("data: "):
+                    continue
+                raw = line.removeprefix("data: ").strip()
+                if raw == "[DONE]":
+                    yield "data: [DONE]\n\n"
+                    continue
+                content = _extract_responses_text(raw)
+                if content:
+                    yield _sse_data({"content": content, "provider": provider})
+    except requests.RequestException as exc:
+        raise FenbiError("AI 服务调用失败。", 502, {"provider": provider, "wire_api": "responses", "error": str(exc)}) from exc
+
+
+def _extract_responses_text(raw: str) -> str:
+    try:
+        payload = json.loads(raw)
+    except json.JSONDecodeError:
+        return ""
+
+    event_type = payload.get("type")
+    if event_type in {"response.output_text.delta", "response.refusal.delta"}:
+        return str(payload.get("delta") or "")
+    if event_type is None:
+        return _response_output_text(payload)
+    return ""
+
+
+def _response_output_text(response: dict[str, Any]) -> str:
+    chunks = []
+    for item in response.get("output") or []:
+        for content in item.get("content") or []:
+            if content.get("type") in {"output_text", "text"} and content.get("text"):
+                chunks.append(str(content["text"]))
+    return "".join(chunks)
 
 
 def _provider_config(provider: str) -> dict[str, Any]:
