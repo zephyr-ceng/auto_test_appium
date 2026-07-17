@@ -1,5 +1,0 @@
-{
-  "installCommand": "true",
-  "buildCommand": "python3 scripts/build_edgeone.py",
-  "outputDirectory": "dist"
-}
