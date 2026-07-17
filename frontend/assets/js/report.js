@@ -349,7 +349,7 @@ const app = document.getElementById('app');
     }
 
     function analysisPanel(historyItems = [], errorTree = []) {
-      const provider = localStorage.getItem('aiProvider') || 'openai';
+      const provider = localStorage.getItem('aiProvider') || 'relay';
       const scope = analysisScope(historyItems, errorTree);
       return `
         <section class="panel" id="panel-analysis">
@@ -926,7 +926,7 @@ const app = document.getElementById('app');
       const output = document.getElementById('analysisOutput');
       if (!button || !status || !output) return;
 
-      const provider = localStorage.getItem('aiProvider') || 'openai';
+      const provider = localStorage.getItem('aiProvider') || 'relay';
       const scope = analysisScope(historyItems, errorTree);
       let receivedChars = 0;
       button.disabled = true;

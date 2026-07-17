@@ -45,7 +45,8 @@ async function loadAiProviders() {
     }
 
     const providers = payload.providers || [];
-    const savedProvider = localStorage.getItem('aiProvider') || providers[0]?.id || 'openai';
+    const defaultProvider = providers.find(provider => provider.default)?.id || providers[0]?.id || 'relay';
+    const savedProvider = localStorage.getItem('aiProvider') || defaultProvider;
     aiProviderSelect.innerHTML = providers.map(provider => `
       <option value="${provider.id}" ${provider.id === savedProvider ? 'selected' : ''}>
         ${provider.name} / ${provider.model}${provider.configured ? '' : '（未配置 Key）'}
