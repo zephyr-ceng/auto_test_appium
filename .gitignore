@@ -2,6 +2,7 @@
 .playwright-cli/
 .venv/
 output/
+dist/
 __pycache__/
 *.py[cod]
 
