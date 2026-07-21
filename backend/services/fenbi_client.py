@@ -15,6 +15,9 @@ from backend.config import (
     EXERCISE_HISTORY_FILE,
     FENBI_COOKIE,
     FENBI_TIMEOUT_SECONDS,
+    FIXTURE_ERROR_KEYPOINT_TREE_FILE,
+    FIXTURE_EXERCISE_HISTORY_FILE,
+    FIXTURE_USER_ANALYSIS_FILE,
     REPORT_CACHE_FILE,
     REPORT_CACHE_TTL_SECONDS,
     SILENT_REFRESH_JITTER_MAX_SECONDS,
@@ -77,6 +80,18 @@ def write_json(path: Path, payload: Any) -> None:
         tmp_path = path.with_suffix(f"{path.suffix}.tmp")
         tmp_path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
         tmp_path.replace(path)
+
+
+def read_first_json(*paths: Path) -> Any:
+    last_missing: FileNotFoundError | None = None
+    for path in paths:
+        try:
+            return read_json(path)
+        except FileNotFoundError as exc:
+            last_missing = exc
+    if last_missing:
+        raise last_missing
+    raise FileNotFoundError("No JSON paths provided.")
 
 
 def read_cookie() -> tuple[str | None, str]:
@@ -480,9 +495,9 @@ def _refresh_report_locked(reason: str, started_at: float) -> dict[str, Any]:
 
 def load_local_report(reason: str = "local-cache") -> dict[str, Any]:
     raw = {
-        "history": read_json(EXERCISE_HISTORY_FILE),
-        "analysis": read_json(USER_ANALYSIS_FILE),
-        "errors": read_json(ERROR_KEYPOINT_TREE_FILE),
+        "history": read_first_json(EXERCISE_HISTORY_FILE, FIXTURE_EXERCISE_HISTORY_FILE),
+        "analysis": read_first_json(USER_ANALYSIS_FILE, FIXTURE_USER_ANALYSIS_FILE),
+        "errors": read_first_json(ERROR_KEYPOINT_TREE_FILE, FIXTURE_ERROR_KEYPOINT_TREE_FILE),
     }
     report = normalize_report(raw, "local")
     report["meta"]["stale"] = True
