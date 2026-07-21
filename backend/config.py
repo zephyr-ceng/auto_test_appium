@@ -25,7 +25,10 @@ def load_local_env() -> None:
 
 load_local_env()
 
-DATA_DIR = Path(os.getenv("FENBI_DATA_DIR", PROJECT_ROOT / "data"))
+IS_VERCEL = os.getenv("VERCEL") == "1"
+FIXTURE_DATA_DIR = Path(os.getenv("FENBI_FIXTURE_DATA_DIR", PROJECT_ROOT / "data"))
+DEFAULT_RUNTIME_DATA_DIR = Path("/tmp/fenbi-report-data") if IS_VERCEL else PROJECT_ROOT / "data"
+DATA_DIR = Path(os.getenv("FENBI_DATA_DIR", DEFAULT_RUNTIME_DATA_DIR))
 FRONTEND_DIR = Path(os.getenv("FENBI_FRONTEND_DIR", PROJECT_ROOT / "frontend"))
 PAGES_DIR = Path(os.getenv("FENBI_PAGES_DIR", FRONTEND_DIR / "pages"))
 STATIC_DIR = Path(os.getenv("FENBI_STATIC_DIR", FRONTEND_DIR / "assets"))
@@ -33,6 +36,9 @@ STATIC_DIR = Path(os.getenv("FENBI_STATIC_DIR", FRONTEND_DIR / "assets"))
 EXERCISE_HISTORY_FILE = DATA_DIR / "live_exercise_history.json"
 USER_ANALYSIS_FILE = DATA_DIR / "live_user_analysis.json"
 ERROR_KEYPOINT_TREE_FILE = DATA_DIR / "live_error_keypoint_tree.json"
+FIXTURE_EXERCISE_HISTORY_FILE = FIXTURE_DATA_DIR / "live_exercise_history.json"
+FIXTURE_USER_ANALYSIS_FILE = FIXTURE_DATA_DIR / "live_user_analysis.json"
+FIXTURE_ERROR_KEYPOINT_TREE_FILE = FIXTURE_DATA_DIR / "live_error_keypoint_tree.json"
 REPORT_CACHE_FILE = DATA_DIR / "report_cache.json"
 STATUS_FILE = DATA_DIR / "status.json"
 COOKIE_FILE = DATA_DIR / "fenbi_cookie.txt"
