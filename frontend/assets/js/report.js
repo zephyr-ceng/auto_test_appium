@@ -996,9 +996,20 @@ const app = document.getElementById('app');
       if (!raw || raw === '[DONE]') return '';
       try {
         const payload = JSON.parse(raw);
+        if (payload.type === 'meta') return '';
         return payload.content || payload.choices?.[0]?.delta?.content || payload.choices?.[0]?.message?.content || '';
       } catch {
         return raw;
+      }
+    }
+
+    function extractAnalysisId(raw) {
+      if (!raw || raw === '[DONE]') return '';
+      try {
+        const payload = JSON.parse(raw);
+        return payload.type === 'meta' ? payload.analysis_id || '' : '';
+      } catch {
+        return '';
       }
     }
 
@@ -1012,13 +1023,19 @@ const app = document.getElementById('app');
       const scope = analysisScope(historyItems, errorTree);
       let receivedChars = 0;
       let analysisText = '';
+      let analysisDone = false;
       button.disabled = true;
       status.textContent = analysisStatusText('running', provider, scope);
       output.innerHTML = markdownToHtml('');
 
       const source = new EventSource(`/api/analysis/stream?provider=${encodeURIComponent(provider)}`);
       source.onmessage = event => {
+        const analysisId = extractAnalysisId(event.data);
+        if (analysisId) {
+          return;
+        }
         if (event.data === '[DONE]') {
+          analysisDone = true;
           source.close();
           button.disabled = false;
           status.textContent = analysisStatusText('done', provider, scope, { receivedChars });
@@ -1034,6 +1051,9 @@ const app = document.getElementById('app');
       source.onerror = () => {
         source.close();
         button.disabled = false;
+        if (analysisDone) {
+          return;
+        }
         status.textContent = analysisStatusText('error', provider, scope);
       };
     }
