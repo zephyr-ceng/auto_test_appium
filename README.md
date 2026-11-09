@@ -126,6 +126,8 @@ $env:FENBI_COOKIE = "<your-cookie>"
 .\.venv\Scripts\uvicorn.exe main:app --host 127.0.0.1 --port 8000 --reload
 ```
 
+`--reload` 只用于本地开发：它监听文件变化并自动重启，依赖 `watchfiles`（由 `uvicorn[standard]` 自带，当前 `watchfiles` 1.2.0、`uvicorn` 0.51.0）。部署时不要带这个参数。
+
 常用页面和接口：
 
 - `http://127.0.0.1:8000/report.html`
@@ -139,6 +141,38 @@ $env:FENBI_COOKIE = "<your-cookie>"
 ```powershell
 $env:ALLOWED_ORIGINS = "http://127.0.0.1:8011,http://localhost:8011"
 .\.venv\Scripts\uvicorn.exe backend.main:app --host 127.0.0.1 --port 8011 --reload
+```
+
+## 停止
+
+前台运行时按 `Ctrl+C`，`--reload` 模式下会一并结束 reloader 和 worker，这是最干净的方式。
+
+后台运行时，先确认 8000 端口被哪个进程占用：
+
+```powershell
+Get-NetTCPConnection -LocalPort 8000 -State Listen |
+  Select-Object LocalAddress, LocalPort, OwningProcess
+```
+
+再用 `taskkill /T` 连同子进程一起结束。`--reload` 会派生 worker 进程，必须带 `/T`，否则 worker 会残留：
+
+```powershell
+Get-NetTCPConnection -LocalPort 8000 -State Listen |
+  ForEach-Object { taskkill /PID $_.OwningProcess /T /F }
+```
+
+确认端口已经释放，输出为空即已停止：
+
+```powershell
+Get-NetTCPConnection -LocalPort 8000 -State Listen -ErrorAction SilentlyContinue
+```
+
+不要用 `Stop-Process -Id <pid> -Force` 结束监听进程：在 `--reload` 模式下它只杀掉 reloader 父进程，派生出的 worker 会变成孤儿，继续占着 8000 端口并正常响应请求。如果已经出现这种情况，按“父进程已不存在的 multiprocessing worker”清理：
+
+```powershell
+Get-CimInstance Win32_Process -Filter "Name='python.exe'" |
+  Where-Object { $_.CommandLine -match 'multiprocessing-fork' -and -not (Get-Process -Id $_.ParentProcessId -ErrorAction SilentlyContinue) } |
+  ForEach-Object { Stop-Process -Id $_.ProcessId -Force }
 ```
 
 ## Cookie 与运行数据
