@@ -84,6 +84,34 @@ $env:AI_RELAY_API_KEY = "<your-key>"
 $env:FENBI_COOKIE = "<your-cookie>"
 ```
 
+### 线上部署环境变量
+
+线上部署时不要上传 `.env.local`，请在部署平台的环境变量面板中写入同名变量。默认使用 relay 时，Relay 的地址、模型和调用协议保持代码默认值即可，只需要配置 `AI_RELAY_API_KEY`。
+
+| 变量名 | 是否必填 | 说明 |
+| --- | --- | --- |
+| `AI_RELAY_API_KEY` | 必填 | AI 中转站密钥，用于报告页 AI 分析。 |
+| `FENBI_COOKIE` | 需要读取真实粉笔数据时必填 | 粉笔 Cookie。线上建议只通过环境变量提供，不通过页面写入文件。 |
+| `ALLOWED_ORIGINS` | 必填 | 线上站点来源白名单，例如 `https://example.com`；多个来源用英文逗号分隔。 |
+
+如果线上不用 relay，而是改用其他 OpenAI 兼容服务商，需要同时设置 `AI_DEFAULT_PROVIDER` 和对应服务商变量：
+
+| Provider | 需要配置的变量 |
+| --- | --- |
+| `openai` | `OPENAI_API_KEY` / `OPENAI_BASE_URL` / `OPENAI_MODEL` |
+| `deepseek` | `DEEPSEEK_API_KEY` / `DEEPSEEK_BASE_URL` / `DEEPSEEK_MODEL` |
+| `qwen` | `DASHSCOPE_API_KEY` / `QWEN_BASE_URL` / `QWEN_MODEL` |
+
+路径类变量本地通常保持默认即可；线上只有在部署平台文件结构不同或已改造外部存储时才需要设置：
+
+| 变量名 | 默认值 | 说明 |
+| --- | --- | --- |
+| `FENBI_FIXTURE_DATA_DIR` | `data` | 兜底 fixture 数据目录。 |
+| `FENBI_DATA_DIR` | 本地为 `data`，Vercel 为 `/tmp/fenbi-report-data` | 运行缓存、状态和 Cookie 文件目录。Serverless 环境不应依赖它保存长期状态。 |
+| `FENBI_FRONTEND_DIR` | `frontend` | 前端静态资源根目录。 |
+| `FENBI_PAGES_DIR` | `frontend/pages` | HTML 页面目录。 |
+| `FENBI_STATIC_DIR` | `frontend/assets` | CSS 和 JavaScript 静态资源目录。 |
+
 ## 启动
 
 推荐使用后端包入口启动：
@@ -119,6 +147,19 @@ $env:ALLOWED_ORIGINS = "http://127.0.0.1:8011,http://localhost:8011"
 
 - 本地或部署环境变量：`FENBI_COOKIE=<your-cookie>`。
 - 本地页面提交：打开 `/admin.html`，服务端验证后写入 `data/fenbi_cookie.txt`。
+
+Cookie 读取和写入流程如下：
+
+1. 报告接口需要 Cookie 时，后端会先读取运行目录下的 `fenbi_cookie.txt`。
+2. 如果文件不存在或内容为空，再读取环境变量 `FENBI_COOKIE`。
+3. 如果前端通过 `/admin.html` 或报告页的 Cookie 表单提交 Cookie，浏览器会请求 `POST /api/admin/cookie`。
+4. 后端会先校验该 Cookie 是否可用，校验通过后写入 `FENBI_DATA_DIR/fenbi_cookie.txt`，并清理报告缓存。
+
+本地默认 `FENBI_DATA_DIR=data`，所以前端提交后会生成或更新 `data/fenbi_cookie.txt`。
+
+线上部署时建议只配置部署平台环境变量 `FENBI_COOKIE`，不要通过前端页面提交 Cookie。当前代码在线上收到前端 Cookie 提交时仍会尝试写入 `FENBI_DATA_DIR/fenbi_cookie.txt`；如果是 Vercel 风格环境，默认路径是 `/tmp/fenbi-report-data/fenbi_cookie.txt`。这类 Serverless 临时目录不保证持久化，也不保证多实例共享，因此不能作为线上可靠存储。
+
+如果后续需要开放给其他人使用，不建议继续使用单个 `FENBI_COOKIE` 或 txt 文件保存 Cookie。更合适的方式是接入登录体系，将每个用户的 Cookie 加密后保存到数据库、托管 KV 或 Secret Store 中，并按当前登录用户读取对应 Cookie。服务端还需要限制 Cookie 更新接口的访问权限，避免任意访问者覆盖他人的配置。
 
 运行时会生成或更新这些本地文件，均不应提交：
 
